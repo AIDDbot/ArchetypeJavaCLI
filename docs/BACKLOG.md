@@ -8,7 +8,7 @@
 
 - Provide a runnable Spring Boot + Spring Shell CLI skeleton that other features build upon.
   
-### F1.1 Project bootstrap (Maven + Spring Boot + Spring Shell) 📝 PLANNED
+### F1.1 Project bootstrap (Maven + Spring Boot + Spring Shell) ✨ CODED
 
 - **Dependencies:** 
   <!-- May be empty -->
@@ -23,7 +23,7 @@ Initialize a Java 21 Maven project with Spring Boot and Spring Shell, runnable e
   - [Design Document](./backlog/f1.1.design.md)
   - [Implementation Plan](./backlog/f1.1.plan.md)
 
-### F1.2 Command framework and help system ⛔ BLOCKED
+### F1.2 Command framework and help system ⏳ PENDING
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -37,7 +37,7 @@ Expose a help system and command discovery with Spring Shell annotations, includ
   - [Design Document](./feats/f1.2.design.md)
   - [Implementation Plan](./feats/f1.2.plan.md)
 
-### F1.3 Configuration via environment variables ⛔ BLOCKED
+### F1.3 Configuration via environment variables ⏳ PENDING
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -51,7 +51,7 @@ Bind environment variables with sensible defaults (timeouts, log level, endpoint
   - [Design Document](./feats/f1.3.design.md)
   - [Implementation Plan](./feats/f1.3.plan.md)
 
-### F1.4 Structured logging baseline ⛔ BLOCKED
+### F1.4 Structured logging baseline ⏳ PENDING
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
