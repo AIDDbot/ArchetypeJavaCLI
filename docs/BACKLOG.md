@@ -8,7 +8,7 @@
 
 - Provide a runnable Spring Boot + Spring Shell CLI skeleton that other features build upon.
   
-### F1.1 Project bootstrap (Maven + Spring Boot + Spring Shell) ✨ CODED
+### F1.1 Project bootstrap (Maven + Spring Boot + Spring Shell) ✅ TESTED
 
 - **Dependencies:** 
   <!-- May be empty -->
@@ -22,6 +22,7 @@ Initialize a Java 21 Maven project with Spring Boot and Spring Shell, runnable e
   - [Feature Specification](./backlog/f1.1.spec.md)
   - [Design Document](./backlog/f1.1.design.md)
   - [Implementation Plan](./backlog/f1.1.plan.md)
+  - [Test Notes](./backlog/f1.1.test.md)
 
 ### F1.2 Command framework and help system ⏳ PENDING
 
