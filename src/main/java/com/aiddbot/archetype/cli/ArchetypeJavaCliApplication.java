@@ -16,6 +16,14 @@ public class ArchetypeJavaCliApplication {
 
   private static final Logger log = LoggerFactory.getLogger(ArchetypeJavaCliApplication.class);
 
+  /**
+   * Application entrypoint for the Archetype Java CLI.
+   * <p>
+   * Boots a Spring Boot application configured for CLI usage (non-web) and prints
+   * a simple banner to the console.
+   *
+   * @param args command line arguments
+   */
   public static void main(String[] args) {
     SpringApplication app = new SpringApplication(ArchetypeJavaCliApplication.class);
     app.setBannerMode(Banner.Mode.CONSOLE);
@@ -23,6 +31,18 @@ public class ArchetypeJavaCliApplication {
   }
 
   @Bean
+  /**
+   * Logs a concise startup line with application name and version once the
+   * Spring context has initialized.
+   *
+   * <p>Version is resolved from {@link BuildProperties} when available
+   * (packaged builds), otherwise falls back to the optional property
+   * {@code app.version} or {@code dev}.
+   *
+   * @param env Spring {@link Environment} to resolve config properties
+   * @param buildProps lazy provider for build metadata
+   * @return a runner executed at startup
+   */
   CommandLineRunner logStartup(Environment env, ObjectProvider<BuildProperties> buildProps) {
     return args -> {
       String appName = env.getProperty("spring.application.name", "archetype-java-cli");
