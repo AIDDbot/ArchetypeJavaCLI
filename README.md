@@ -5,6 +5,7 @@ An archetype for building Java command-line interfaces using Spring Boot and Spr
 ## Documentation
 
 - [Project Requirements Document (PRD)](./docs/PRD.md)
+- [Domain Model](./docs/DOMAIN.md)
 - [Briefing](./docs/archetype-java_cli.briefing.md)
 
 ## About
