@@ -11,6 +11,12 @@ import org.springframework.boot.info.BuildProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 
+/**
+ * Spring Boot application entrypoint for the Archetype Java CLI.
+ * <p>
+ * Provides a minimal CLI-ready bootstrap with a startup log line including
+ * application name and version.
+ */
 @SpringBootApplication
 public class ArchetypeJavaCliApplication {
 
