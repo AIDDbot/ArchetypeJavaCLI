@@ -3,11 +3,13 @@ package dev.albertobasalo.archetype.cli;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.boot.info.BuildProperties;
 
 @SpringBootApplication
 public class ArchetypeJavaCliApplication {
@@ -20,6 +22,9 @@ public class ArchetypeJavaCliApplication {
     @Value("${app.version:dev}")
     private String appVersion;
 
+    @Autowired(required = false)
+    private BuildProperties buildProperties;
+
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(ArchetypeJavaCliApplication.class);
         app.setBannerMode(Banner.Mode.CONSOLE);
@@ -28,6 +33,9 @@ public class ArchetypeJavaCliApplication {
 
     @Bean
     CommandLineRunner logStartup() {
-        return args -> log.info("{} v{} ready", appName, appVersion);
+        return args -> {
+            String version = (buildProperties != null) ? buildProperties.getVersion() : appVersion;
+            log.info("{} v{} ready", appName, version);
+        };
     }
 }
