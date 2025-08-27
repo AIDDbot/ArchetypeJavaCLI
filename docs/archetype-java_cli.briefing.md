@@ -1,6 +1,6 @@
 # Archetype Java CLI Briefing
 
-This project is an archetype for building Spring-Shell command-line interfaces (CLI) using Java. 
+This project is an archetype for building Java command-line interfaces (CLI) using Spring-Shell. 
 It provides a structured setup with essential tools and configurations to streamline development.
 It includes a simple set of features to serve as a sample and guide for creating your own CLI applications.
 It is not intended for production use, but rather as a learning tool and a starting point for your own projects.
@@ -20,18 +20,14 @@ The archetype provides a set of core and sample business features to facilitate 
 
 ## Technology Stack
 
-- **Java Support**: Built using Java 19 or 21, providing safety and modern features.
-- **Configuration Files**: Comes with configuration files ensuring code quality and consistency.
-- **Testing Framework**: Set up with modern Java Spring Built-in test runner, no other dependencies required.
-- **Command-Line Interface**: Includes a basic CLI setup that can be extended with additional commands and options.
+- **Java 21**: Safety and modern features.
+- **Spring Boot**: Comes with opinionated defaults and auto-configuration.
 
 ### Tooling and developer dependencies
 
-- **Spring boot**: 
-- **Java 21**: Used for writing the CLI application with type safety.
+- **Spring Shell**: Used for writing the CLI application with commands safety.
 - **maven 3.9.11**: Helps manage and update dependencies.
- 
-All dependencies must be updatable to the latest version, and the project should be compatible with Node.js V24 LTS versions.
+- **JUnit 5**: For unit testing and ensuring code quality.
 
 ### Libraries and runtime dependencies
 

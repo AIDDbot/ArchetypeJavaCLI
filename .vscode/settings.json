@@ -81,6 +81,9 @@
   "github.copilot.chat.languageContext.typescript.enabled": true,
   "github.copilot.enable": {
     "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
     "inlineSuggest": true,
     "inlineSuggest.enable": true,
     "inlineSuggest.showSuggestionsAlways": true
