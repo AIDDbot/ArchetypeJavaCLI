@@ -11,7 +11,7 @@
     <relativePath />
   </parent>
 
-  <groupId>dev.albertobasalo</groupId>
+  <groupId>com.aiddbot</groupId>
   <artifactId>archetype-java-cli</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <name>archetype-java-cli</name>
