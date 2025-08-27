@@ -41,11 +41,12 @@ public class ArchetypeJavaCliApplication {
    * Logs a concise startup line with application name and version once the
    * Spring context has initialized.
    *
-   * <p>Version is resolved from {@link BuildProperties} when available
+   * <p>
+   * Version is resolved from {@link BuildProperties} when available
    * (packaged builds), otherwise falls back to the optional property
    * {@code app.version} or {@code dev}.
    *
-   * @param env Spring {@link Environment} to resolve config properties
+   * @param env        Spring {@link Environment} to resolve config properties
    * @param buildProps lazy provider for build metadata
    * @return a runner executed at startup
    */
