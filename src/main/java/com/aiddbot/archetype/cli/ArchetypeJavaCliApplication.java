@@ -26,10 +26,9 @@ public class ArchetypeJavaCliApplication {
   CommandLineRunner logStartup(Environment env, ObjectProvider<BuildProperties> buildProps) {
     return args -> {
       String appName = env.getProperty("spring.application.name", "archetype-java-cli");
-      String version =
-          buildProps.getIfAvailable() != null
-              ? buildProps.getIfAvailable().getVersion()
-              : env.getProperty("app.version", "dev");
+      String version = buildProps.getIfAvailable() != null
+          ? buildProps.getIfAvailable().getVersion()
+          : env.getProperty("app.version", "dev");
       log.info("{} v{} ready", appName, version);
     };
   }
