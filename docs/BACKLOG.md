@@ -8,7 +8,7 @@
 
 - Provide a runnable Spring Boot + Spring Shell CLI skeleton that other features build upon.
   
-### F1.1 Project bootstrap (Maven + Spring Boot + Spring Shell) ✅ TESTED
+### F1.1 Project bootstrap (Maven + Spring Boot + Spring Shell) ⛲ CLEANED
 
 - **Dependencies:** 
   <!-- May be empty -->

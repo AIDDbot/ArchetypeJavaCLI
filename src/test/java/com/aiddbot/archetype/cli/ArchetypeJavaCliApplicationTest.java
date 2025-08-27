@@ -4,12 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
-@SpringBootTest(classes = ArchetypeJavaCliApplication.class, properties = {
-    "spring.main.web-application-type=none",
-    "spring.shell.interactive.enabled=false",
-    "spring.shell.noninteractive.enabled=false"
-})
+@SpringBootTest(
+  classes = ArchetypeJavaCliApplication.class)
+@ActiveProfiles("test")
 class ArchetypeJavaCliApplicationTest {
 
   @Test

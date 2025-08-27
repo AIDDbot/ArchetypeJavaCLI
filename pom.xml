@@ -46,6 +46,28 @@
 
   <build>
     <plugins>
+      <!-- Code formatting with Spotless -->
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>2.43.0</version>
+        <configuration>
+          <java>
+            <googleJavaFormat version="1.17.0" />
+            <removeUnusedImports />
+            <importOrder>
+              <order>java,javax,org,com</order>
+            </importOrder>
+          </java>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>apply</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <!-- Enforce Java 21 at build time -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -76,6 +98,24 @@
         <version>3.13.0</version>
         <configuration>
           <release>${maven.compiler.release}</release>
+        </configuration>
+      </plugin>
+
+      <!-- Configure test execution -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <systemPropertyVariables>
+            <spring.shell.interactive.enabled>false</spring.shell.interactive.enabled>
+            <spring.shell.noninteractive.enabled>false</spring.shell.noninteractive.enabled>
+            <spring.main.web-application-type>none</spring.main.web-application-type>
+            <spring.main.banner-mode>off</spring.main.banner-mode>
+          </systemPropertyVariables>
+          <environmentVariables>
+            <TERM>dumb</TERM>
+          </environmentVariables>
         </configuration>
       </plugin>
 
