@@ -1,5 +1,7 @@
 package com.aiddbot.archetype.cli;
 
+import com.aiddbot.archetype.cli.runtime.DefaultExitCodeExceptionMapper;
+import com.aiddbot.archetype.cli.runtime.ExitCodeExceptionMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
@@ -35,8 +37,15 @@ public class ArchetypeJavaCliApplication {
   public static void main(String[] args) {
     SpringApplication app = new SpringApplication(ArchetypeJavaCliApplication.class);
     app.setBannerMode(Banner.Mode.CONSOLE);
-    app.run(args);
-    log.info("=== APPLICATION SHUTDOWN ===");
+    ExitCodeExceptionMapper mapper = new DefaultExitCodeExceptionMapper();
+    try {
+      app.run(args);
+      log.info("=== APPLICATION SHUTDOWN ===");
+    } catch (Throwable t) {
+      int code = mapper.map(t);
+      log.error("Fatal error: {} (code={})", mapper.message(t), code, t);
+      System.exit(code);
+    }
   }
 
   /**
@@ -76,6 +85,11 @@ public class ArchetypeJavaCliApplication {
       log.info("=== {} v{} READY ===", appName, version);
       log.info("=== APPLICATION STARTUP COMPLETE ===");
     };
+  }
+
+  @Bean
+  ExitCodeExceptionMapper exitCodeExceptionMapper() {
+    return new DefaultExitCodeExceptionMapper();
   }
 
   private static String resolveVersion(Environment env, BuildProperties bp) {
