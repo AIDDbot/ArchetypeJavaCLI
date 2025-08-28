@@ -41,7 +41,7 @@ Expose a help system and command discovery with Spring Shell annotations, includ
   - [Design Document](./backlog/f1.2.design.md)
   - [Implementation Plan](./backlog/f1.2.plan.md)
 
-### F1.3 Configuration via environment variables ⏳ PENDING
+### F1.3 Configuration via environment variables 📝 PLANNED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -51,9 +51,9 @@ Expose a help system and command discovery with Spring Shell annotations, includ
 Bind environment variables with sensible defaults (timeouts, log level, endpoints) using Spring config properties.
 
 - **Links:**
-  - [Feature Specification](./feats/f1.3.spec.md)
-  - [Design Document](./feats/f1.3.design.md)
-  - [Implementation Plan](./feats/f1.3.plan.md)
+  - [Feature Specification](./backlog/f1.3.spec.md)
+  - [Design Document](./backlog/f1.3.design.md)
+  - [Implementation Plan](./backlog/f1.3.plan.md)
 
 ### F1.4 Structured logging baseline ⏳ PENDING
 

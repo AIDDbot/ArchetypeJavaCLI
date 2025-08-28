@@ -56,6 +56,23 @@ Environment hints:
 SPRING_APPLICATION_NAME=archetype-java-cli APP_VERSION=dev mvn -q spring-boot:run
 ```
 
+- Configuration via environment variables (F1.3):
+  - Timeouts
+    - `CLI_NETWORK_CONNECT_TIMEOUT_MS` → `cli.network.connect-timeout-ms` (default 2000)
+    - `CLI_NETWORK_READ_TIMEOUT_MS` → `cli.network.read-timeout-ms` (default 2000)
+  - External endpoints
+    - `CLI_ENDPOINTS_IP_GEO_BASE_URL` → `cli.endpoints.ip-geo-base-url` (default http://ip-api.com/json)
+    - `CLI_ENDPOINTS_OPEN_METEO_BASE_URL` → `cli.endpoints.open-meteo-base-url` (default https://api.open-meteo.com/v1/forecast)
+
+Example run with overrides:
+
+```bash
+CLI_NETWORK_CONNECT_TIMEOUT_MS=1500 CLI_NETWORK_READ_TIMEOUT_MS=2500 \
+CLI_ENDPOINTS_IP_GEO_BASE_URL=http://ip-api.com/json \
+CLI_ENDPOINTS_OPEN_METEO_BASE_URL=https://api.open-meteo.com/v1/forecast \
+mvn -q spring-boot:run
+```
+
 ## About
 
 - Author: [Alberto Basalo](https://albertobasalo.dev)

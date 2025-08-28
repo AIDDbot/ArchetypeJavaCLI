@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 /**
  * Spring Boot application entrypoint for the Archetype Java CLI.
@@ -18,6 +19,7 @@ import org.springframework.core.env.Environment;
  * application name and version.
  */
 @SpringBootApplication
+@ConfigurationPropertiesScan
 public class ArchetypeJavaCliApplication {
 
   private static final Logger log = LoggerFactory.getLogger(ArchetypeJavaCliApplication.class);
