@@ -72,7 +72,7 @@ Configure SLF4J-compatible logging with JSON-friendly patterns and log level con
   - [Implementation Plan](./backlog/f1.4.plan.md)
   - [Test Notes](./backlog/f1.4.test.md) ✅
 
-### F1.5 Exit codes and process lifecycle 📝 PLANNED
+### F1.5 Exit codes and process lifecycle ✨ CODED
 
 - **Dependencies:** 
   - F1.2 Command framework and help system
