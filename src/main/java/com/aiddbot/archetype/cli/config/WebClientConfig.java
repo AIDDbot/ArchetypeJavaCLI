@@ -18,14 +18,33 @@ import io.netty.channel.ChannelOption;
 import reactor.netty.http.client.HttpClient;
 
 /**
- * Configuration for a singleton {@link WebClient} with sensible defaults for
- * timeouts and headers.
+ * Provides a singleton {@link WebClient} preconfigured for outbound HTTP calls.
+ *
+ * <p>Behavior:
+ *
+ * <ul>
+ *   <li>Connect timeout and read/response timeout sourced from {@link CliProperties}.
+ *   <li>Default headers:
+ *       <ul>
+ *         <li><code>Accept: application/json</code>
+ *         <li><code>User-Agent: ArchetypeJavaCLI/&lt;version&gt;</code> where version comes from
+ *             Spring Boot {@link org.springframework.boot.info.BuildProperties} or falls back to
+ *             <code>dev</code> in tests/local builds.
+ *       </ul>
+ * </ul>
  */
 @Configuration
 public class WebClientConfig {
 
   private static final Logger log = LoggerFactory.getLogger(WebClientConfig.class);
 
+  /**
+   * Build the application {@link WebClient} instance.
+   *
+   * @param props app configuration properties providing network timeouts
+   * @param buildProps optional Spring Boot build properties to resolve version for User-Agent
+   * @return a configured WebClient ready for JSON APIs
+   */
   @Bean
   WebClient webClient(CliProperties props, ObjectProvider<BuildProperties> buildProps) {
     int connectMs = props.getNetwork().getConnectTimeoutMs();
@@ -50,12 +69,21 @@ public class WebClientConfig {
                   headers.set(HttpHeaders.USER_AGENT, userAgent);
                 })
             .build();
-(
+    log.info(
+        "WebClient configured: connectTimeoutMs={}, readTimeoutMs={}, userAgent={}",
+        connectMs,
+        readMs,
+        userAgent);
 
-      connereadMs,userAgent)rn client;
+    return client;
+  }
 
-  
-
+  /**
+   * Resolve the application version for the User-Agent header.
+   *
+   * <p>If {@link BuildProperties} are available (when built with spring-boot-maven-plugin {@code
+   * build-info}), use that version; otherwise return {@code dev}.
+   */
   private static String resolveVersion(ObjectProvider<BuildProperties> buildProps) {
     BuildProperties bp = buildProps.getIfAvailable();
     if (bp != null) {
