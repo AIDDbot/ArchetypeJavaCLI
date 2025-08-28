@@ -33,13 +33,8 @@ public class ArchetypeJavaCliApplication {
    * @param args command line arguments
    */
   public static void main(String[] args) {
-    log.info("=== STARTING APPLICATION ===");
-    log.info("Command line arguments: {}", String.join(" ", args));
-
     SpringApplication app = new SpringApplication(ArchetypeJavaCliApplication.class);
     app.setBannerMode(Banner.Mode.CONSOLE);
-
-    log.info("About to run Spring application...");
     app.run(args);
     log.info("=== APPLICATION SHUTDOWN ===");
   }

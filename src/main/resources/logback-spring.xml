@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+  <!-- Resolve Spring properties if available -->
+  <springProperty scope="context" name="appName" source="spring.application.name" defaultValue="app"/>
+  <springProperty scope="context" name="appVersion" source="app.version" defaultValue="dev"/>
+  <!-- Allow overriding root level via env var LOGGING_LEVEL_ROOT, else INFO -->
+  <property name="ROOT_LOG_LEVEL" value="${LOGGING_LEVEL_ROOT:-INFO}"/>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+      <fieldNames>
+        <timestamp>timestamp</timestamp>
+        <level>level</level>
+        <logger>logger</logger>
+        <thread>thread</thread>
+        <message>message</message>
+        <version>version</version>
+      </fieldNames>
+      <!-- Include MDC and exception as structured fields -->
+      <includeMdc>true</includeMdc>
+      <includeContext>true</includeContext>
+      <includeStructuredArguments>true</includeStructuredArguments>
+      <includeMarkers>true</includeMarkers>
+      <writeVersionAsInteger>false</writeVersionAsInteger>
+      <customFields>{"app":"${appName}","version":"${appVersion}"}</customFields>
+    </encoder>
+  </appender>
+
+  <root level="${ROOT_LOG_LEVEL}">
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>
