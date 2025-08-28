@@ -1,6 +1,7 @@
 package com.aiddbot.archetype.cli.config;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +9,9 @@ import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
-import org.springframework.web.reactive.function.client.ExchangeStrategies;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import io.netty.channel.ChannelOption;
@@ -41,12 +42,10 @@ public class WebClientConfig {
 
     WebClient client = WebClient.builder()
         .clientConnector(new ReactorClientHttpConnector(httpClient))
-        .defaultHeaders(
-            headers -> {
-              headers.setAccept(MediaType.parseMediaTypes(MediaType.APPLICATION_JSON_VALUE));
-              headers.add("User-Agent", userAgent);
-            })
-        .exchangeStrategies(ExchangeStrategies.withDefaults())
+        .defaultHeaders(headers -> {
+          headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+          headers.set(HttpHeaders.USER_AGENT, userAgent);
+        })
         .build();
 
     log.info(
