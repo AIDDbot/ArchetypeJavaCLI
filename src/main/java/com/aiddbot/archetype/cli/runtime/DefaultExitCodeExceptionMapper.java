@@ -9,7 +9,20 @@ import java.util.concurrent.TimeoutException;
 
 import jakarta.validation.ConstraintViolationException;
 
-/** Default implementation for mapping exceptions to exit codes. */
+/**
+ * Default implementation for mapping exceptions to exit codes.
+ *
+ * <p>Precedence order is:
+ *
+ * <ol>
+ *   <li>{@link CodedException} explicit mapping
+ *   <li>Validation errors → {@link ExitCodes#VALIDATION}
+ *   <li>Network errors (timeouts, connect, DNS) → {@link ExitCodes#NETWORK}
+ *   <li>Local IO errors → {@link ExitCodes#IO}
+ *   <li>Other runtime errors → {@link ExitCodes#RUNTIME}
+ *   <li>Unknown/other → {@link ExitCodes#UNKNOWN}
+ * </ol>
+ */
 public class DefaultExitCodeExceptionMapper implements ExitCodeExceptionMapper {
   @Override
   public int map(Throwable t) {

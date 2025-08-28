@@ -16,6 +16,11 @@ src/
           VersionCommands.java             # Spring Shell command: version
         config/
           CliProperties.java               # Strongly-typed configuration properties
+        runtime/
+          ExitCodes.java                   # Canonical process exit codes
+          CodedException.java              # Exception carrying an exit code
+          ExitCodeExceptionMapper.java     # Contract to map Throwable -> ExitCodes
+          DefaultExitCodeExceptionMapper.java # Default mapping implementation
     resources/
       application.properties               # Default configuration (filtered)
       banner.txt                           # CLI banner
@@ -30,6 +35,10 @@ src/
           VersionCommandsIntegrationTest.java     # Integration test for Shell
         config/
           CliPropertiesTest.java                  # Unit/validation tests for configuration
+        runtime/
+          ExitCodesTest.java                      # Unit tests for exit code values
+          CodedExceptionTest.java                 # Unit tests for coded exception semantics
+          DefaultExitCodeExceptionMapperTest.java # Unit tests for exception mapping
     resources/
       application-test.properties
 ```
@@ -39,6 +48,7 @@ src/
 - `src/main/java/com/aiddbot/archetype/cli/ArchetypeJavaCliApplication.java`: Spring Boot entrypoint configuring a non-web CLI.
 - `src/main/java/com/aiddbot/archetype/cli/commands/VersionCommands.java`: Spring Shell command exposing the `version` action.
 - `src/main/java/com/aiddbot/archetype/cli/config/CliProperties.java`: Configuration properties with validation and metadata generation.
+- `src/main/java/com/aiddbot/archetype/cli/runtime/*.java`: Exit codes, coded exception, and mapper used to standardize process termination behavior (F1.5).
 
 ## Bill of Materials
 
