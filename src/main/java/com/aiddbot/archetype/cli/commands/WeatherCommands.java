@@ -13,13 +13,15 @@ import com.aiddbot.archetype.cli.runtime.CodedException;
 /**
  * Spring Shell command group exposing the {@code weather} command.
  *
- * <p>Orchestrates Epic 3 features:
+ * <p>
+ * Orchestrates Epic 3 features:
  *
  * <ul>
- *   <li>F3.1 – Resolve approximate location via IP when coordinates are not provided.
- *   <li>F3.2 – Fetch current weather from Open‑Meteo given lat/lon.
- *   <li>F3.3 – Present a concise, human‑readable summary.
- *   <li>F3.4 – Propagate coded errors for graceful exit codes.
+ * <li>F3.1 – Resolve approximate location via IP when coordinates are not
+ * provided.
+ * <li>F3.2 – Fetch current weather from Open‑Meteo given lat/lon.
+ * <li>F3.3 – Present a concise, human‑readable summary.
+ * <li>F3.4 – Propagate coded errors for graceful exit codes.
  * </ul>
  */
 @ShellComponent
@@ -43,12 +45,10 @@ public class WeatherCommands {
    * @param lon optional longitude in decimal degrees
    * @return formatted one-line summary
    */
-  @ShellMethod(
-      key = "weather",
-      value = "Show current weather for coordinates or detected IP location")
+  @ShellMethod(key = "weather", value = "Show current weather for coordinates or detected IP location")
   public String weather(
-      @ShellOption(help = "latitude", defaultValue = "${null}") Double lat,
-      @ShellOption(help = "longitude", defaultValue = "${null}") Double lon) {
+      @ShellOption(help = "latitude", defaultValue = ShellOption.NULL) Double lat,
+      @ShellOption(help = "longitude", defaultValue = ShellOption.NULL) Double lon) {
 
     double useLat = 0.0;
     double useLon = 0.0;
