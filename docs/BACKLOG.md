@@ -2,7 +2,7 @@
 
 > Epic Priority Legend: ‼️ Critical | ❗ High  |❕ Normal
 
-> Feature Status Legend: ⛔ BLOCKED | ⏳ PENDING | ⛪ SPECIFIED | ✏️ DESIGNED | 📝 PLANNED | ✨ CODED | ✅ TESTED | ⛲ CLEANED | ✔️ RELEASED 
+> Feature Status Legend: ⛔ BLOCKED | ⏳ PENDING | ⛪ SPECIFIED | ✏️ DESIGNED | 📝 PLANNED | ✨ CODED | ✅ TESTED | ⚒ CLEANED | ✔️ RELEASED 
 
 ## E1 CLI Scaffold and Runtime ‼️ Critical
 
@@ -27,7 +27,7 @@ Initialize a Java 21 Maven project with Spring Boot and Spring Shell, runnable e
   - [Test Notes](./backlog/f1.1.test.md) ✅ **ENHANCED**
   - [Structure Overview](./STRUCTURE.md) ✅ **UPDATED**
 
-### F1.2 Command framework and help system ⏳ PENDING
+### F1.2 Command framework and help system ✅ TESTED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -37,11 +37,12 @@ Initialize a Java 21 Maven project with Spring Boot and Spring Shell, runnable e
 Expose a help system and command discovery with Spring Shell annotations, including app banner and version.
 
 - **Links:**
-  - [Feature Specification](./feats/f1.2.spec.md)
-  - [Design Document](./feats/f1.2.design.md)
-  - [Implementation Plan](./feats/f1.2.plan.md)
+  - [Feature Specification](./backlog/f1.2.spec.md)
+  - [Design Document](./backlog/f1.2.design.md)
+  - [Implementation Plan](./backlog/f1.2.plan.md)
+  - [Test Notes](./backlog/f1.2.test.md) ✅
 
-### F1.3 Configuration via environment variables ⏳ PENDING
+### F1.3 Configuration via environment variables ✅ TESTED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -51,9 +52,10 @@ Expose a help system and command discovery with Spring Shell annotations, includ
 Bind environment variables with sensible defaults (timeouts, log level, endpoints) using Spring config properties.
 
 - **Links:**
-  - [Feature Specification](./feats/f1.3.spec.md)
-  - [Design Document](./feats/f1.3.design.md)
-  - [Implementation Plan](./feats/f1.3.plan.md)
+  - [Feature Specification](./backlog/f1.3.spec.md)
+  - [Design Document](./backlog/f1.3.design.md)
+  - [Implementation Plan](./backlog/f1.3.plan.md)
+  - [Test Notes](./backlog/f1.3.test.md) ✅
 
 ### F1.4 Structured logging baseline ⏳ PENDING
 
@@ -69,7 +71,7 @@ Configure SLF4J-compatible logging with JSON-friendly patterns and log level con
   - [Design Document](./feats/f1.4.design.md)
   - [Implementation Plan](./feats/f1.4.plan.md)
 
-### F1.5 Exit codes and process lifecycle ⛔ BLOCKED
+### F1.5 Exit codes and process lifecycle ⏳ PENDING
 
 - **Dependencies:** 
   - F1.2 Command framework and help system
@@ -88,7 +90,7 @@ Standardize success and error exit codes, with consistent user-facing messages o
 
 - Establish robust HTTP client configuration and external API endpoints to support integrations.
 
-### F2.1 Reactive HTTP client with timeouts ⛔ BLOCKED
+### F2.1 Reactive HTTP client with timeouts ⏳ PENDING
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -104,7 +106,7 @@ Provide a WebClient bean with connect/read timeouts and sensible defaults, honor
   - [Design Document](./feats/f2.1.design.md)
   - [Implementation Plan](./feats/f2.1.plan.md)
 
-### F2.2 External endpoints configuration (ip-api, Open‑Meteo) ⛔ BLOCKED
+### F2.2 External endpoints configuration (ip-api, Open‑Meteo) ⏳ PENDING
 
 - **Dependencies:** 
   - F1.3 Configuration via environment variables
@@ -126,7 +128,7 @@ Expose configurable base URLs for IP Geolocation and Open‑Meteo services; vali
 
 - **Dependencies:** 
   - F2.1 Reactive HTTP client with timeouts
-  - F2.2 External endpoints configuration (ip-api, Open‑Meteo)
+  - F2.2 External endpoints configuration (ip‑api, Open‑Meteo)
 - **Project Requirements:** 
   - R2 Weather command (sample feature)
   - R7 Non-functional requirements
@@ -142,7 +144,7 @@ When coordinates aren’t provided, call IP Geolocation API and map response to 
 
 - **Dependencies:** 
   - F2.1 Reactive HTTP client with timeouts
-  - F2.2 External endpoints configuration (ip-api, Open‑Meteo)
+  - F2.2 External endpoints configuration (ip‑api, Open‑Meteo)
 - **Project Requirements:** 
   - R2 Weather command (sample feature)
 
