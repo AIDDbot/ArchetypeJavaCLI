@@ -133,5 +133,6 @@
     "editor.fontSize",
     "editor.fontFamily"
   ],
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.compile.nullAnalysis.mode": "automatic"
 }
