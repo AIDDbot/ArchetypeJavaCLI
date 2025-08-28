@@ -2,7 +2,7 @@
 
 > Epic Priority Legend: ‼️ Critical | ❗ High  |❕ Normal
 
-> Feature Status Legend: ⛔ BLOCKED | ⏳ PENDING | ⛪ SPECIFIED | ✏️ DESIGNED | 📝 PLANNED | ✨ CODED | ✅ TESTED | ⛲ CLEANED | ✔️ RELEASED 
+> Feature Status Legend: ⛔ BLOCKED | ⏳ PENDING | ⛪ SPECIFIED | ✏️ DESIGNED | 📝 PLANNED | ✨ CODED | ✅ TESTED | ⚒ CLEANED | ✔️ RELEASED 
 
 ## E1 CLI Scaffold and Runtime ‼️ Critical
 
@@ -27,7 +27,7 @@ Initialize a Java 21 Maven project with Spring Boot and Spring Shell, runnable e
   - [Test Notes](./backlog/f1.1.test.md) ✅ **ENHANCED**
   - [Structure Overview](./STRUCTURE.md) ✅ **UPDATED**
 
-### F1.2 Command framework and help system ⏳ PENDING
+### F1.2 Command framework and help system 📝 PLANNED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -37,9 +37,9 @@ Initialize a Java 21 Maven project with Spring Boot and Spring Shell, runnable e
 Expose a help system and command discovery with Spring Shell annotations, including app banner and version.
 
 - **Links:**
-  - [Feature Specification](./feats/f1.2.spec.md)
-  - [Design Document](./feats/f1.2.design.md)
-  - [Implementation Plan](./feats/f1.2.plan.md)
+  - [Feature Specification](./backlog/f1.2.spec.md)
+  - [Design Document](./backlog/f1.2.design.md)
+  - [Implementation Plan](./backlog/f1.2.plan.md)
 
 ### F1.3 Configuration via environment variables ⏳ PENDING
 
@@ -126,7 +126,7 @@ Expose configurable base URLs for IP Geolocation and Open‑Meteo services; vali
 
 - **Dependencies:** 
   - F2.1 Reactive HTTP client with timeouts
-  - F2.2 External endpoints configuration (ip-api, Open‑Meteo)
+  - F2.2 External endpoints configuration (ip‑api, Open‑Meteo)
 - **Project Requirements:** 
   - R2 Weather command (sample feature)
   - R7 Non-functional requirements
@@ -142,7 +142,7 @@ When coordinates aren’t provided, call IP Geolocation API and map response to 
 
 - **Dependencies:** 
   - F2.1 Reactive HTTP client with timeouts
-  - F2.2 External endpoints configuration (ip-api, Open‑Meteo)
+  - F2.2 External endpoints configuration (ip‑api, Open‑Meteo)
 - **Project Requirements:** 
   - R2 Weather command (sample feature)
 
