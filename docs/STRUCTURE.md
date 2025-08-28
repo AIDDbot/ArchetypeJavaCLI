@@ -79,3 +79,12 @@ This project implements a dual testing approach:
     - Design: `docs/backlog/f1.3.design.md`
     - Plan: `docs/backlog/f1.3.plan.md`
     - Tests: `docs/backlog/f1.3.test.md`
+
+- F1.4 Structured logging baseline
+  - Logging: Logback JSON encoder to STDOUT with custom fields `app` and `version`, root level via `logging.level.root` or `LOGGING_LEVEL_ROOT`.
+  - Status: ✔️ RELEASED
+  - Docs:
+    - Spec: `docs/backlog/f1.4.spec.md`
+    - Design: `docs/backlog/f1.4.design.md`
+    - Plan: `docs/backlog/f1.4.plan.md`
+    - Tests: `docs/backlog/f1.4.test.md`

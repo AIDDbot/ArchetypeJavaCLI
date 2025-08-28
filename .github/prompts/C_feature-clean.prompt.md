@@ -31,7 +31,7 @@ Write clean plan for the feature: ${input:featureId}
 
 - [ ] Look for any code that can be simplified or made more readable and refactor it
 
-- [ ] **Run the Test**: Run the tests to ensure they pass.
+- [ ] **Run the UNIT Test**: Run the unit tests to ensure they pass. But not the slow integration tests.
 
 - [ ] Update the [BACKLOG.md](/docs/BACKLOG.md) with:
   - [ ] change or keep the status to ⛲ CLEANED

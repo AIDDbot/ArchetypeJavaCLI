@@ -27,7 +27,7 @@ Initialize a Java 21 Maven project with Spring Boot and Spring Shell, runnable e
   - [Test Notes](./backlog/f1.1.test.md) ✅ **ENHANCED**
   - [Structure Overview](./STRUCTURE.md) ✅ **UPDATED**
 
-### F1.2 Command framework and help system ✅ TESTED
+### F1.2 Command framework and help system ✔️ RELEASED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -42,7 +42,7 @@ Expose a help system and command discovery with Spring Shell annotations, includ
   - [Implementation Plan](./backlog/f1.2.plan.md)
   - [Test Notes](./backlog/f1.2.test.md) ✅
 
-### F1.3 Configuration via environment variables ✅ TESTED
+### F1.3 Configuration via environment variables ✔️ RELEASED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -57,7 +57,7 @@ Bind environment variables with sensible defaults (timeouts, log level, endpoint
   - [Implementation Plan](./backlog/f1.3.plan.md)
   - [Test Notes](./backlog/f1.3.test.md) ✅
 
-### F1.4 Structured logging baseline ⏳ PENDING
+### F1.4 Structured logging baseline ✔️ RELEASED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -67,9 +67,10 @@ Bind environment variables with sensible defaults (timeouts, log level, endpoint
 Configure SLF4J-compatible logging with JSON-friendly patterns and log level control via env vars.
 
 - **Links:**
-  - [Feature Specification](./feats/f1.4.spec.md)
-  - [Design Document](./feats/f1.4.design.md)
-  - [Implementation Plan](./feats/f1.4.plan.md)
+  - [Feature Specification](./backlog/f1.4.spec.md)
+  - [Design Document](./backlog/f1.4.design.md)
+  - [Implementation Plan](./backlog/f1.4.plan.md)
+  - [Test Notes](./backlog/f1.4.test.md) ✅
 
 ### F1.5 Exit codes and process lifecycle ⏳ PENDING
 

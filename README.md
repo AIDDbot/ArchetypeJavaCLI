@@ -48,6 +48,25 @@ mvn -q -DskipTests package
 java -jar target/archetype-java-cli-0.1.0-SNAPSHOT.jar
 ```
 
+## Logging
+
+- Structured JSON logs to STDOUT using Logback + `logstash-logback-encoder`.
+- Custom fields `app` and `version` are included in each entry.
+- Root log level is resolved in this order: `logging.level.root` (Spring property) → `LOGGING_LEVEL_ROOT` (env var) → `INFO`.
+
+Examples:
+
+```bash
+# Run with INFO root level (default)
+mvn -q spring-boot:run
+
+# Override to ERROR via Spring property
+mvn -q spring-boot:run -Dspring-boot.run.arguments="--logging.level.root=ERROR"
+
+# Or via environment variable
+LOGGING_LEVEL_ROOT=ERROR mvn -q spring-boot:run
+```
+
 Environment hints:
 
 - To set the app name or version when running locally:
