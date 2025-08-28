@@ -2,7 +2,7 @@
 
 > Epic Priority Legend: ‼️ Critical | ❗ High  |❕ Normal
 
-> Feature Status Legend: ⛔ BLOCKED | ⏳ PENDING | ⛪ SPECIFIED | ✏️ DESIGNED | 📝 PLANNED | ✨ CODED | ✅ TESTED | ⚒ CLEANED | ✔️ RELEASED 
+> Feature Status Legend: ⛔ BLOCKED | ⏳ PENDING | ⛪ SPECIFIED | ✏️ DESIGNED | 📝 PLANNED | ✨ CODED | ✅ TESTED | ⛲ CLEANED | ✔️ RELEASED 
 
 ## E1 CLI Scaffold and Runtime ‼️ Critical
 
@@ -92,7 +92,7 @@ Standardize success and error exit codes, with consistent user-facing messages o
 
 - Establish robust HTTP client configuration and external API endpoints to support integrations.
 
-### F2.1 Reactive HTTP client with timeouts ⚒ CLEANED
+### F2.1 Reactive HTTP client with timeouts ⛲ CLEANED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap

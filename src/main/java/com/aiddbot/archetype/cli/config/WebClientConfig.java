@@ -18,7 +18,8 @@ import io.netty.channel.ChannelOption;
 import reactor.netty.http.client.HttpClient;
 
 /**
- * Configuration for a singleton {@link WebClient} with sensible defaults for timeouts and headers.
+ * Configuration for a singleton {@link WebClient} with sensible defaults for
+ * timeouts and headers.
  */
 @Configuration
 public class WebClientConfig {
@@ -49,15 +50,11 @@ public class WebClientConfig {
                   headers.set(HttpHeaders.USER_AGENT, userAgent);
                 })
             .build();
+(
 
-    log.info(
-        "WebClient configured: connectTimeoutMs={}, readTimeoutMs={}, userAgent={}",
-        connectMs,
-        readMs,
-        userAgent);
+      connereadMs,userAgent)rn client;
 
-    return client;
-  }
+  
 
   private static String resolveVersion(ObjectProvider<BuildProperties> buildProps) {
     BuildProperties bp = buildProps.getIfAvailable();
