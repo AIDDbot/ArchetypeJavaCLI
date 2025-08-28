@@ -109,7 +109,7 @@ Provide a WebClient bean with connect/read timeouts and sensible defaults, honor
   - [Implementation Plan](./backlog/f2.1.plan.md) ✅ **UPDATED**
   - [Test Notes](./backlog/f2.1.test.md) ✅
 
-### F2.2 External endpoints configuration (ip-api, Open‑Meteo) ✏️ DESIGNED
+### F2.2 External endpoints configuration (ip-api, Open‑Meteo) 📝 PLANNED
 
 - **Dependencies:** 
   - F1.3 Configuration via environment variables
