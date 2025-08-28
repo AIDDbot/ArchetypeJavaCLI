@@ -11,6 +11,8 @@ import jakarta.validation.ConstraintViolationException;
 
 /**
  * Default implementation for mapping exceptions to exit codes.
+ * <p>
+ * Part of feature F3.4 "Graceful errors and exit codes".
  *
  * <p>Precedence order is:
  *

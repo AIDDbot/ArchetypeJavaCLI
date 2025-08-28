@@ -3,6 +3,10 @@ package com.aiddbot.archetype.cli.integrations.openmeteo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * POJO mapping for the "current_weather" section returned by Open‑Meteo.
+ * Part of feature F3.2.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OpenMeteoCurrent {
 

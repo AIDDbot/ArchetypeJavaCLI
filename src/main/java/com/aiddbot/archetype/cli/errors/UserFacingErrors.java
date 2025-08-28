@@ -2,6 +2,11 @@ package com.aiddbot.archetype.cli.errors;
 
 import com.aiddbot.archetype.cli.runtime.CodedException;
 
+/**
+ * Utility to format errors for end users.
+ * <p>
+ * Supports Epic 3.4 by ensuring consistent, concise error lines printed to stderr.
+ */
 public final class UserFacingErrors {
 
   private UserFacingErrors() {

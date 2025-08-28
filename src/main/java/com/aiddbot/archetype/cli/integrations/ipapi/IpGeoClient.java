@@ -15,8 +15,15 @@ import com.aiddbot.archetype.cli.runtime.ExitCodes;
 import reactor.core.Exceptions;
 
 /**
- * Simple client to resolve approximate coordinates from ip-api.com using the
- * application WebClient.
+ * Client for the IP geolocation service (ip-api.com).
+ * <p>
+ * This component belongs to feature F3.1 "Resolve location via IP" and
+ * uses the shared, preconfigured {@link WebClient} to call the external
+ * endpoint provided by {@link CliProperties#getEndpoints()}.
+ * <p>
+ * All network and upstream errors are translated to a {@link CodedException}
+ * using {@link ExitCodes#NETWORK} so the CLI can exit gracefully with
+ * consistent codes (F3.4).
  */
 @Component
 public class IpGeoClient {
@@ -26,13 +33,22 @@ public class IpGeoClient {
   private final WebClient webClient;
   private final URI baseUri;
 
+  /**
+   * Create the client with the shared WebClient and configuration properties.
+   *
+   * @param webClient shared, timeout-configured HTTP client (see F2.1)
+   * @param props CLI properties holding the ip-api base URL (see F2.2)
+   */
   public IpGeoClient(WebClient webClient, CliProperties props) {
     this.webClient = webClient;
     this.baseUri = props.getEndpoints().getIpGeoBaseUrl();
   }
 
   /**
-   * Resolve the current IP location. Throws {@link CodedException} on failures.
+   * Resolve the current public IP location into approximate coordinates.
+   *
+   * @return parsed {@link IpGeoResponse} with latitude and longitude
+   * @throws CodedException when HTTP/network errors occur or the response is invalid
    */
   public IpGeoResponse resolve() {
     try {

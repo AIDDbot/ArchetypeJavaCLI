@@ -14,7 +14,14 @@ import com.aiddbot.archetype.cli.runtime.ExitCodes;
 
 import reactor.core.Exceptions;
 
-/** Simple client to call Open‑Meteo current weather endpoint. */
+/**
+ * Client for Open‑Meteo current weather endpoint.
+ * <p>
+ * This component implements feature F3.2 "Fetch current weather from
+ * Open‑Meteo". It uses the shared {@link WebClient} and the base URL from
+ * {@link CliProperties} (F2.2). Errors are normalized to {@link CodedException}
+ * with {@link ExitCodes#NETWORK} for consistent CLI behavior (F3.4).
+ */
 @Component
 public class OpenMeteoClient {
 
@@ -23,11 +30,25 @@ public class OpenMeteoClient {
   private final WebClient webClient;
   private final URI baseUri;
 
+  /**
+   * Constructs a client using the shared WebClient and configuration.
+   *
+   * @param webClient shared WebClient with timeouts (F2.1)
+   * @param props CLI properties containing Open‑Meteo base URL (F2.2)
+   */
   public OpenMeteoClient(WebClient webClient, CliProperties props) {
     this.webClient = webClient;
     this.baseUri = props.getEndpoints().getOpenMeteoBaseUrl();
   }
 
+  /**
+   * Fetch current weather for the given coordinates.
+   *
+   * @param lat latitude in decimal degrees
+   * @param lon longitude in decimal degrees
+   * @return {@link WeatherObservation} with temperature, windspeed and code
+   * @throws CodedException when HTTP/network errors occur or the payload is incomplete
+   */
   public WeatherObservation fetchCurrent(double lat, double lon) {
     try {
       // Build URI like: {base}?latitude={lat}&longitude={lon}&current_weather=true
