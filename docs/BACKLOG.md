@@ -41,7 +41,7 @@ Expose a help system and command discovery with Spring Shell annotations, includ
   - [Design Document](./backlog/f1.2.design.md)
   - [Implementation Plan](./backlog/f1.2.plan.md)
 
-### F1.3 Configuration via environment variables 📝 PLANNED
+### F1.3 Configuration via environment variables ✨ CODED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -88,7 +88,7 @@ Standardize success and error exit codes, with consistent user-facing messages o
 
 - Establish robust HTTP client configuration and external API endpoints to support integrations.
 
-### F2.1 Reactive HTTP client with timeouts ⛔ BLOCKED
+### F2.1 Reactive HTTP client with timeouts ⏳ PENDING
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -104,7 +104,7 @@ Provide a WebClient bean with connect/read timeouts and sensible defaults, honor
   - [Design Document](./feats/f2.1.design.md)
   - [Implementation Plan](./feats/f2.1.plan.md)
 
-### F2.2 External endpoints configuration (ip-api, Open‑Meteo) ⛔ BLOCKED
+### F2.2 External endpoints configuration (ip-api, Open‑Meteo) ⏳ PENDING
 
 - **Dependencies:** 
   - F1.3 Configuration via environment variables

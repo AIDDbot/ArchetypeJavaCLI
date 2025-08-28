@@ -1,10 +1,12 @@
 package com.aiddbot.archetype.cli.config;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
 import java.net.URI;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.validation.annotation.Validated;
+
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 @Validated
 @ConfigurationProperties(prefix = "cli")
@@ -46,8 +48,10 @@ public class CliProperties {
   }
 
   public static class Endpoints {
-    @NotNull private URI ipGeoBaseUrl = URI.create("http://ip-api.com/json");
-    @NotNull private URI openMeteoBaseUrl = URI.create("https://api.open-meteo.com/v1/forecast");
+    @NotNull
+    private URI ipGeoBaseUrl = URI.create("http://ip-api.com/json");
+    @NotNull
+    private URI openMeteoBaseUrl = URI.create("https://api.open-meteo.com/v1/forecast");
 
     public URI getIpGeoBaseUrl() {
       return ipGeoBaseUrl;
