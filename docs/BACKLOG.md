@@ -27,7 +27,7 @@ Initialize a Java 21 Maven project with Spring Boot and Spring Shell, runnable e
   - [Test Notes](./backlog/f1.1.test.md) ✅ **ENHANCED**
   - [Structure Overview](./STRUCTURE.md) ✅ **UPDATED**
 
-### F1.2 Command framework and help system 📝 PLANNED
+### F1.2 Command framework and help system ✨ CODED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -69,7 +69,7 @@ Configure SLF4J-compatible logging with JSON-friendly patterns and log level con
   - [Design Document](./feats/f1.4.design.md)
   - [Implementation Plan](./feats/f1.4.plan.md)
 
-### F1.5 Exit codes and process lifecycle ⛔ BLOCKED
+### F1.5 Exit codes and process lifecycle ⏳ PENDING
 
 - **Dependencies:** 
   - F1.2 Command framework and help system
