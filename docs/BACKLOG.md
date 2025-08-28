@@ -159,7 +159,7 @@ Call Open‑Meteo with lat/lon and parse JSON into a WeatherObservation domain o
   - [Design Document](./backlog/f3.2.design.md)
   - [Implementation Plan](./backlog/f3.2.plan.md)
 
-### F3.3 Compose human‑readable weather report ⛔ BLOCKED
+### F3.3 Compose human‑readable weather report ✨ CODED
 
 - **Dependencies:** 
   - F3.1 Resolve location via IP (ip-api.com)
