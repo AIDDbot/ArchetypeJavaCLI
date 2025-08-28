@@ -24,15 +24,15 @@ public class DefaultExitCodeExceptionMapper implements ExitCodeExceptionMapper {
       return ExitCodes.VALIDATION.code();
     }
 
-    if (t instanceof IOException || t instanceof UncheckedIOException) {
-      return ExitCodes.IO.code();
-    }
-
     if (t instanceof SocketTimeoutException
         || t instanceof TimeoutException
         || t instanceof ConnectException
         || t instanceof UnknownHostException) {
       return ExitCodes.NETWORK.code();
+    }
+
+    if (t instanceof IOException || t instanceof UncheckedIOException) {
+      return ExitCodes.IO.code();
     }
 
     if (t instanceof RuntimeException) {
