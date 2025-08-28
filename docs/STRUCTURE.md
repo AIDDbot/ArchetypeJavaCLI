@@ -80,3 +80,14 @@ src/
 - Build Tools: Maven, Spring Boot Maven Plugin, Maven Compiler/Enforcer, Spotless
 
 > End of STRUCTURE for Archetype Java CLI, last updated on 2025-08-28.
+
+## Build & Packaging (E4)
+
+- Java 21 enforced via Maven Enforcer and `maven-compiler-plugin` with `--release=21`.
+- Tests split: Surefire for unit tests; Failsafe declared for ITs (skipped by default via `-DskipITs=true`).
+- Resource filtering limited to `application.properties`; other resources unfiltered.
+- Reproducible builds enabled via fixed `project.build.outputTimestamp`.
+- Spring Boot Maven Plugin:
+  - `build-info` goal to generate `META-INF/build-info.properties`.
+  - `repackage` goal to create an executable fat JAR.
+- Artifact: `target/archetype-java-cli-<version>.jar` runnable with `java -jar`.

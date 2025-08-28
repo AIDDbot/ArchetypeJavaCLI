@@ -41,11 +41,12 @@ class LoggingConfigurationIntegrationTest {
   @Nested
   @SpringBootTest
   @ActiveProfiles("test")
-  @TestPropertySource(properties = {
-      "spring.application.name=archetype-java-cli-test",
-      "app.version=1.2.3",
-      "logging.level.root=INFO"
-  })
+  @TestPropertySource(
+      properties = {
+        "spring.application.name=archetype-java-cli-test",
+        "app.version=1.2.3",
+        "logging.level.root=INFO"
+      })
   class JsonLoggingAtInfo {
 
     @Test
@@ -90,8 +91,7 @@ class LoggingConfigurationIntegrationTest {
         // by Logback across contexts)
         assertThat(out).contains("\"app\":\"archetype-java-cli-test\"");
       } finally {
-        if (original != null)
-          System.setOut(original);
+        if (original != null) System.setOut(original);
       }
     }
   }
@@ -99,11 +99,12 @@ class LoggingConfigurationIntegrationTest {
   @Nested
   @SpringBootTest
   @ActiveProfiles("test")
-  @TestPropertySource(properties = {
-      "spring.application.name=archetype-java-cli-test",
-      "app.version=9.9.9",
-      "logging.level.root=ERROR"
-  })
+  @TestPropertySource(
+      properties = {
+        "spring.application.name=archetype-java-cli-test",
+        "app.version=9.9.9",
+        "logging.level.root=ERROR"
+      })
   class RootLevelErrorSuppressesInfo {
 
     @Test
@@ -125,12 +126,14 @@ class LoggingConfigurationIntegrationTest {
   }
 
   @Nested
-  @Disabled("Flaky across JVM/context due to global Logback initialization; validated by ROOT level property test above")
+  @Disabled(
+      "Flaky across JVM/context due to global Logback initialization; validated by ROOT level property test above")
   @SpringBootTest
   @ActiveProfiles("test")
-  @TestPropertySource(properties = { "spring.application.name=archetype-java-cli-test", "app.version=9.9.9"
-  // Intentionally omit logging.level.root to exercise env var fallback
-  })
+  @TestPropertySource(
+      properties = {"spring.application.name=archetype-java-cli-test", "app.version=9.9.9"
+        // Intentionally omit logging.level.root to exercise env var fallback
+      })
   @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
   class EnvVarRootLevelErrorSuppressesInfo {
 

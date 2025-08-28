@@ -48,14 +48,11 @@ public class CliProperties {
   }
 
   public static class Endpoints {
-    @NotNull
-    private URI ipGeoBaseUrl = URI.create("http://ip-api.com/json");
-    @NotNull
-    private URI openMeteoBaseUrl = URI.create("https://api.open-meteo.com/v1/forecast");
+    @NotNull private URI ipGeoBaseUrl = URI.create("http://ip-api.com/json");
+    @NotNull private URI openMeteoBaseUrl = URI.create("https://api.open-meteo.com/v1/forecast");
 
     /**
-     * Base URL for the IP Geolocation service (ip-api). Override with
-     * cli.endpoints.ip-geo-base-url
+     * Base URL for the IP Geolocation service (ip-api). Override with cli.endpoints.ip-geo-base-url
      * or CLI_ENDPOINTS_IP_GEO_BASE_URL.
      */
     public URI getIpGeoBaseUrl() {
@@ -67,8 +64,7 @@ public class CliProperties {
     }
 
     /**
-     * Base URL for the Open‑Meteo service. Override with
-     * cli.endpoints.open-meteo-base-url or
+     * Base URL for the Open‑Meteo service. Override with cli.endpoints.open-meteo-base-url or
      * CLI_ENDPOINTS_OPEN_METEO_BASE_URL.
      */
     public URI getOpenMeteoBaseUrl() {

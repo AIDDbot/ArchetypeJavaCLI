@@ -199,7 +199,7 @@ Handle network failures and upstream errors with clear messages and non‑zero e
 
 - Ensure predictable local builds and a runnable artifact for distribution.
 
-### F4.1 Maven build plugins configuration ✨ CODED
+### F4.1 Maven build plugins configuration ✔️ RELEASED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -213,8 +213,9 @@ Configure Maven plugins (compiler, Surefire/Failsafe placeholders) and Java 21 t
   - [Design Document](./backlog/f4.1.design.md) ✅
   - [Implementation Plan](./backlog/f4.1.plan.md) ✅
   - [Implementation Tasks](./backlog/f4.1.tasks.md) ✅
+  - [Test Notes](./backlog/f4.1.test.md) ✅
 
-### F4.2 Runnable JAR packaging ✨ CODED
+### F4.2 Runnable JAR packaging ✔️ RELEASED
 
 - **Dependencies:** 
   - F4.1 Maven build plugins configuration
@@ -229,6 +230,7 @@ Package the application as a self-contained executable JAR with Spring Boot plug
   - [Design Document](./backlog/f4.2.design.md) ✅
   - [Implementation Plan](./backlog/f4.2.plan.md) ✅
   - [Implementation Tasks](./backlog/f4.2.tasks.md) ✅
+  - [Test Notes](./backlog/f4.2.test.md) ✅
 
 ## Additional Information
 

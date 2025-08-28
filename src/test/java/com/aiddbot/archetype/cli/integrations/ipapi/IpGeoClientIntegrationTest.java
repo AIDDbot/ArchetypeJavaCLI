@@ -24,8 +24,7 @@ import reactor.netty.http.server.HttpServer;
 @SpringBootTest
 class IpGeoClientIntegrationTest {
 
-  @Autowired
-  WebClient webClient;
+  @Autowired WebClient webClient;
 
   private DisposableServer server;
 
@@ -43,20 +42,24 @@ class IpGeoClientIntegrationTest {
 
   private IpGeoClient newClientWithRoute(String path, String body, int statusCode) {
     // Restart server with route
-    if (server != null)
-      server.disposeNow();
-    server = HttpServer.create()
-        .port(0)
-        .route(
-            routes -> routes.get(
-                path,
-                (req, res) -> res.status(statusCode)
-                    .header("Content-Type", "application/json")
-                    .sendString(Mono.just(body))))
-        .bindNow();
+    if (server != null) server.disposeNow();
+    server =
+        HttpServer.create()
+            .port(0)
+            .route(
+                routes ->
+                    routes.get(
+                        path,
+                        (req, res) ->
+                            res.status(statusCode)
+                                .header("Content-Type", "application/json")
+                                .sendString(Mono.just(body))))
+            .bindNow();
 
     CliProperties props = new CliProperties();
-    props.getEndpoints().setIpGeoBaseUrl(java.net.URI.create("http://localhost:" + server.port() + path));
+    props
+        .getEndpoints()
+        .setIpGeoBaseUrl(java.net.URI.create("http://localhost:" + server.port() + path));
     return new IpGeoClient(webClient, props);
   }
 
@@ -80,7 +83,9 @@ class IpGeoClientIntegrationTest {
     assertThatThrownBy(client::resolve)
         .isInstanceOf(CodedException.class)
         .satisfies(
-            ex -> assertThat(((CodedException) ex).getExitCode().code()).isEqualTo(ExitCodes.NETWORK.code()))
+            ex ->
+                assertThat(((CodedException) ex).getExitCode().code())
+                    .isEqualTo(ExitCodes.NETWORK.code()))
         .hasMessageContaining("ip-geo failed");
   }
 
@@ -92,7 +97,9 @@ class IpGeoClientIntegrationTest {
     assertThatThrownBy(client::resolve)
         .isInstanceOf(CodedException.class)
         .satisfies(
-            ex -> assertThat(((CodedException) ex).getExitCode().code()).isEqualTo(ExitCodes.UNKNOWN.code()))
+            ex ->
+                assertThat(((CodedException) ex).getExitCode().code())
+                    .isEqualTo(ExitCodes.UNKNOWN.code()))
         .hasMessageContaining("invalid coordinates");
   }
 
@@ -104,7 +111,9 @@ class IpGeoClientIntegrationTest {
     assertThatThrownBy(client::resolve)
         .isInstanceOf(CodedException.class)
         .satisfies(
-            ex -> assertThat(((CodedException) ex).getExitCode().code()).isEqualTo(ExitCodes.NETWORK.code()))
+            ex ->
+                assertThat(((CodedException) ex).getExitCode().code())
+                    .isEqualTo(ExitCodes.NETWORK.code()))
         .hasMessageContaining("HTTP error");
   }
 }

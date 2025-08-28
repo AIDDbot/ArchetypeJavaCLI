@@ -20,21 +20,17 @@ import reactor.netty.http.client.HttpClient;
 /**
  * Provides a singleton {@link WebClient} preconfigured for outbound HTTP calls.
  *
- * <p>
- * Behavior:
+ * <p>Behavior:
  *
  * <ul>
- * <li>Connect timeout and read/response timeout sourced from
- * {@link CliProperties}.
- * <li>Default headers:
- * <ul>
- * <li><code>Accept: application/json</code>
- * <li><code>User-Agent: ArchetypeJavaCLI/&lt;version&gt;</code> where version
- * comes from
- * Spring Boot {@link org.springframework.boot.info.BuildProperties} or falls
- * back to
- * <code>dev</code> in tests/local builds.
- * </ul>
+ *   <li>Connect timeout and read/response timeout sourced from {@link CliProperties}.
+ *   <li>Default headers:
+ *       <ul>
+ *         <li><code>Accept: application/json</code>
+ *         <li><code>User-Agent: ArchetypeJavaCLI/&lt;version&gt;</code> where version comes from
+ *             Spring Boot {@link org.springframework.boot.info.BuildProperties} or falls back to
+ *             <code>dev</code> in tests/local builds.
+ *       </ul>
  * </ul>
  */
 @Configuration
@@ -45,9 +41,8 @@ public class WebClientConfig {
   /**
    * Build the application {@link WebClient} instance.
    *
-   * @param props      app configuration properties providing network timeouts
-   * @param buildProps optional Spring Boot build properties to resolve version
-   *                   for User-Agent
+   * @param props app configuration properties providing network timeouts
+   * @param buildProps optional Spring Boot build properties to resolve version for User-Agent
    * @return a configured WebClient ready for JSON APIs
    */
   @Bean
@@ -56,23 +51,25 @@ public class WebClientConfig {
     int readMs = props.getNetwork().getReadTimeoutMs();
     var endpoints = props.getEndpoints();
 
-    HttpClient httpClient = HttpClient.create()
-        // Connect timeout
-        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, connectMs)
-        // Read/response timeout
-        .responseTimeout(Duration.ofMillis(readMs));
+    HttpClient httpClient =
+        HttpClient.create()
+            // Connect timeout
+            .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, connectMs)
+            // Read/response timeout
+            .responseTimeout(Duration.ofMillis(readMs));
 
     String version = resolveVersion(buildProps);
     String userAgent = "ArchetypeJavaCLI/" + version;
 
-    WebClient client = WebClient.builder()
-        .clientConnector(new ReactorClientHttpConnector(httpClient))
-        .defaultHeaders(
-            headers -> {
-              headers.setAccept(List.of(MediaType.APPLICATION_JSON));
-              headers.set(HttpHeaders.USER_AGENT, userAgent);
-            })
-        .build();
+    WebClient client =
+        WebClient.builder()
+            .clientConnector(new ReactorClientHttpConnector(httpClient))
+            .defaultHeaders(
+                headers -> {
+                  headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+                  headers.set(HttpHeaders.USER_AGENT, userAgent);
+                })
+            .build();
     log.info(
         "WebClient configured: connectTimeoutMs={}, readTimeoutMs={}, userAgent={}, ipGeoBaseUrl={}, openMeteoBaseUrl={}",
         connectMs,
@@ -87,9 +84,7 @@ public class WebClientConfig {
   /**
    * Resolve the application version for the User-Agent header.
    *
-   * <p>
-   * If {@link BuildProperties} are available (when built with
-   * spring-boot-maven-plugin {@code
+   * <p>If {@link BuildProperties} are available (when built with spring-boot-maven-plugin {@code
    * build-info}), use that version; otherwise return {@code dev}.
    */
   private static String resolveVersion(ObjectProvider<BuildProperties> buildProps) {

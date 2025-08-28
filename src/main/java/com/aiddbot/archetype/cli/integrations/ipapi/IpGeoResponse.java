@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Minimal mapping of ip-api.com JSON response used by the CLI.
- * <p>
- * Part of feature F3.1. Only the fields required to obtain coordinates are
- * mapped; unknown fields are ignored for forward-compatibility.
+ *
+ * <p>Part of feature F3.1. Only the fields required to obtain coordinates are mapped; unknown
+ * fields are ignored for forward-compatibility.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class IpGeoResponse {
