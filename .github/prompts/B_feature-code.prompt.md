@@ -28,7 +28,7 @@ Write code for the feature: ${input:featureId}
 
 - [ ] Mark each task as complete by updating the status in the [{featureId}.plan.md](/docs/backlog/{featureId}.plan.md) document.
 
-- [ ] **Smoke Test**: The code builds and runs successfully. Do not test or lint the code at this stage.
+- [ ] **Smoke Test**: The code builds successfully. Do not write test or lint the code at this stage.
 
 - [ ] Update the [BACKLOG.md](/docs/BACKLOG.md) with:
   - [ ] change or keep the status to ✨ CODED

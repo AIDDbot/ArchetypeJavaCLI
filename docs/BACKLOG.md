@@ -57,7 +57,7 @@ Bind environment variables with sensible defaults (timeouts, log level, endpoint
   - [Implementation Plan](./backlog/f1.3.plan.md)
   - [Test Notes](./backlog/f1.3.test.md) ✅
 
-### F1.4 Structured logging baseline ✨ CODED
+### F1.4 Structured logging baseline ✔️ RELEASED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -70,6 +70,7 @@ Configure SLF4J-compatible logging with JSON-friendly patterns and log level con
   - [Feature Specification](./backlog/f1.4.spec.md)
   - [Design Document](./backlog/f1.4.design.md)
   - [Implementation Plan](./backlog/f1.4.plan.md)
+  - [Test Notes](./backlog/f1.4.test.md) ✅
 
 ### F1.5 Exit codes and process lifecycle ⏳ PENDING
 
