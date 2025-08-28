@@ -57,7 +57,7 @@ Bind environment variables with sensible defaults (timeouts, log level, endpoint
   - [Implementation Plan](./backlog/f1.3.plan.md)
   - [Test Notes](./backlog/f1.3.test.md) ✅
 
-### F1.4 Structured logging baseline 📝 PLANNED
+### F1.4 Structured logging baseline ✨ CODED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
