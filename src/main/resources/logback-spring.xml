@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true">
+  <!-- Silence internal Logback status messages to keep stdout JSON-only -->
+  <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
   <!-- Resolve Spring properties if available -->
   <springProperty scope="context" name="appName" source="spring.application.name" defaultValue="app"/>
   <springProperty scope="context" name="appVersion" source="app.version" defaultValue="dev"/>
@@ -14,7 +16,7 @@
         <logger>logger</logger>
         <thread>thread</thread>
         <message>message</message>
-        <version>version</version>
+        <version>schemaVersion</version>
       </fieldNames>
       <!-- Include MDC and exception as structured fields -->
       <includeMdc>true</includeMdc>
