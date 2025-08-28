@@ -15,10 +15,29 @@ src/
   test/
     java/
       com/aiddbot/archetype/cli/
-        ArchetypeJavaCliApplicationTest.java  # Context smoke test
+        ArchetypeJavaCliApplicationTest.java     # Integration test (Spring context)
+        ArchetypeJavaCliApplicationUnitTest.java # Unit test (mocks, fast)
     resources/
       application-test.properties
 ```
+
+## Testing Strategy
+
+This project implements a dual testing approach:
+
+### Unit Tests (`*UnitTest.java`)
+- **Purpose**: Fast, isolated testing of individual methods
+- **Technology**: JUnit 5 + Mockito
+- **Speed**: < 2 seconds 
+- **Context**: No Spring context startup
+- **Usage**: `mvn test -Dtest=*UnitTest`
+
+### Integration Tests (`*Test.java`)
+- **Purpose**: End-to-end testing with full Spring context
+- **Technology**: `@SpringBootTest` with Shell disabled
+- **Speed**: ~5-10 seconds
+- **Context**: Full Spring Boot application context
+- **Usage**: `mvn test -Dtest=*Test -Dtest=!*UnitTest`
 
 ## Features
 

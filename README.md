@@ -20,7 +20,14 @@ Prerequisites:
 Build and run tests:
 
 ```bash
+# Run all tests (unit + integration)
 mvn -q clean test
+
+# Run only unit tests (fast, no Spring context)
+mvn test -Dtest=*UnitTest
+
+# Run only integration tests (slower, full Spring context)
+mvn test -Dtest=*Test -Dtest=!*UnitTest
 ```
 
 Run the application (non-web CLI):

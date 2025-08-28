@@ -31,12 +31,17 @@ public class ArchetypeJavaCliApplication {
    * @param args command line arguments
    */
   public static void main(String[] args) {
+    log.info("=== STARTING APPLICATION ===");
+    log.info("Command line arguments: {}", String.join(" ", args));
+
     SpringApplication app = new SpringApplication(ArchetypeJavaCliApplication.class);
     app.setBannerMode(Banner.Mode.CONSOLE);
+
+    log.info("About to run Spring application...");
     app.run(args);
+    log.info("=== APPLICATION SHUTDOWN ===");
   }
 
-  @Bean
   /**
    * Logs a concise startup line with application name and version once the
    * Spring context has initialized.
@@ -50,13 +55,38 @@ public class ArchetypeJavaCliApplication {
    * @param buildProps lazy provider for build metadata
    * @return a runner executed at startup
    */
+  @Bean
   CommandLineRunner logStartup(Environment env, ObjectProvider<BuildProperties> buildProps) {
     return args -> {
+      log.info("=== APPLICATION STARTUP BEGINS ===");
+
       String appName = env.getProperty("spring.application.name", "archetype-java-cli");
-      String version = buildProps.getIfAvailable() != null
-          ? buildProps.getIfAvailable().getVersion()
-          : env.getProperty("app.version", "dev");
-      log.info("{} v{} ready", appName, version);
+      BuildProperties bp = buildProps.getIfAvailable();
+      String version = resolveVersion(env, bp);
+
+      // Log application configuration
+      log.info("Application Name: {}", appName);
+      log.info("Application Version: {}", version);
+      log.info("Web Application Type: {}", env.getProperty("spring.main.web-application-type", "servlet"));
+      log.info("Shell Interactive Enabled: {}", env.getProperty("spring.shell.interactive.enabled", "true"));
+      log.info("Shell Non-Interactive Enabled: {}", env.getProperty("spring.shell.noninteractive.enabled", "true"));
+      log.info("Active Profiles: {}", String.join(", ", env.getActiveProfiles()));
+
+      log.info("=== {} v{} READY ===", appName, version);
+      log.info("=== APPLICATION STARTUP COMPLETE ===");
     };
+  }
+
+  private static String resolveVersion(Environment env, BuildProperties bp) {
+    if (bp != null) {
+      return bp.getVersion();
+    }
+
+    String configured = env.getProperty("app.version");
+    if (configured != null && !configured.isBlank()) {
+      return configured;
+    }
+
+    return "dev";
   }
 }

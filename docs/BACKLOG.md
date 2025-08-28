@@ -16,14 +16,16 @@
   - R1 CLI scaffold and runtime
   - R7 Non-functional requirements
 
-Initialize a Java 21 Maven project with Spring Boot and Spring Shell, runnable entrypoint, and basic app metadata.
+Initialize a Java 21 Maven project with Spring Boot and Spring Shell, runnable entrypoint, basic app metadata, and comprehensive testing infrastructure.
+
+**ENHANCED (2025-08-28)**: Added dual testing strategy with unit tests (fast, mocked) and integration tests (full Spring context).
 
 - **Links:**
   - [Feature Specification](./backlog/f1.1.spec.md)
   - [Design Document](./backlog/f1.1.design.md)
   - [Implementation Plan](./backlog/f1.1.plan.md)
-  - [Test Notes](./backlog/f1.1.test.md)
-  - [Structure Overview](./STRUCTURE.md)
+  - [Test Notes](./backlog/f1.1.test.md) ✅ **ENHANCED**
+  - [Structure Overview](./STRUCTURE.md) ✅ **UPDATED**
 
 ### F1.2 Command framework and help system ⏳ PENDING
 
