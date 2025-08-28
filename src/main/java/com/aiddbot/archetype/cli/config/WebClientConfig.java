@@ -54,6 +54,7 @@ public class WebClientConfig {
   WebClient webClient(CliProperties props, ObjectProvider<BuildProperties> buildProps) {
     int connectMs = props.getNetwork().getConnectTimeoutMs();
     int readMs = props.getNetwork().getReadTimeoutMs();
+    var endpoints = props.getEndpoints();
 
     HttpClient httpClient = HttpClient.create()
         // Connect timeout
@@ -73,10 +74,12 @@ public class WebClientConfig {
             })
         .build();
     log.info(
-        "WebClient configured: connectTimeoutMs={}, readTimeoutMs={}, userAgent={}",
+        "WebClient configured: connectTimeoutMs={}, readTimeoutMs={}, userAgent={}, ipGeoBaseUrl={}, openMeteoBaseUrl={}",
         connectMs,
         readMs,
-        userAgent);
+        userAgent,
+        endpoints.getIpGeoBaseUrl(),
+        endpoints.getOpenMeteoBaseUrl());
 
     return client;
   }
