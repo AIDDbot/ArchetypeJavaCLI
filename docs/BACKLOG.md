@@ -128,7 +128,7 @@ Expose configurable base URLs for IP Geolocation and Open‑Meteo services; vali
 
 - Deliver a user-facing `weather` command that resolves location and prints current conditions.
 
-### F3.1 Resolve location via IP (ip-api.com) ✅ TESTED
+### F3.1 Resolve location via IP (ip-api.com) ✔️ RELEASED
 
 - **Dependencies:** 
   - F2.1 Reactive HTTP client with timeouts
@@ -144,8 +144,9 @@ When coordinates aren’t provided, call IP Geolocation API and map response to 
   - [Design Document](./backlog/f3.1.design.md)
   - [Implementation Plan](./backlog/f3.1.plan.md)
   - [Test Notes](./backlog/f3.1.test.md) ✅
+  - [Structure Overview](./STRUCTURE.md) ✅ **UPDATED**
 
-### F3.2 Fetch current weather from Open‑Meteo ✨ CODED
+### F3.2 Fetch current weather from Open‑Meteo ✔️ RELEASED
 
 - **Dependencies:** 
   - F2.1 Reactive HTTP client with timeouts
@@ -159,8 +160,9 @@ Call Open‑Meteo with lat/lon and parse JSON into a WeatherObservation domain o
   - [Feature Specification](./backlog/f3.2.spec.md)
   - [Design Document](./backlog/f3.2.design.md)
   - [Implementation Plan](./backlog/f3.2.plan.md)
+  - [Structure Overview](./STRUCTURE.md) ✅ **UPDATED**
 
-### F3.3 Compose human‑readable weather report ✨ CODED
+### F3.3 Compose human‑readable weather report ✔️ RELEASED
 
 - **Dependencies:** 
   - F3.1 Resolve location via IP (ip-api.com)
@@ -174,8 +176,9 @@ Transform domain objects into a concise terminal summary and print results.
   - [Feature Specification](./backlog/f3.3.spec.md)
   - [Design Document](./backlog/f3.3.design.md)
   - [Implementation Plan](./backlog/f3.3.plan.md)
+  - [Structure Overview](./STRUCTURE.md) ✅ **UPDATED**
 
-### F3.4 Graceful errors and exit codes ✨ CODED
+### F3.4 Graceful errors and exit codes ✔️ RELEASED
 
 - **Dependencies:** 
   - F1.5 Exit codes and process lifecycle
@@ -190,6 +193,7 @@ Handle network failures and upstream errors with clear messages and non‑zero e
   - [Feature Specification](./backlog/f3.4.spec.md)
   - [Design Document](./backlog/f3.4.design.md)
   - [Implementation Plan](./backlog/f3.4.plan.md)
+  - [Structure Overview](./STRUCTURE.md) ✅ **UPDATED**
 
 ## E4 Build and Packaging ❕ Normal
 

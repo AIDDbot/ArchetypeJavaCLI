@@ -3,6 +3,7 @@
 ## Overview
 
 Spring Boot CLI application with Spring Shell commands. Provides a version command, strongly-typed configuration via `@ConfigurationProperties`, and structured JSON logging. Dual testing strategy separates fast unit tests from full-context integration tests.
+Implements a sample Weather flow (Epic 3): IP geolocation (F3.1), Open‑Meteo client (F3.2), human‑readable presenter (F3.3), and graceful errors/exit codes (F3.4).
 
 ## Folder Structure
 
@@ -14,9 +15,22 @@ src/
         ArchetypeJavaCliApplication.java   # Spring Boot entrypoint (CLI)
         commands/
           VersionCommands.java             # Spring Shell command: version
+          WeatherCommands.java             # Spring Shell command: weather (F3.1–F3.4)
         config/
           CliProperties.java               # Strongly-typed configuration properties
           WebClientConfig.java             # Preconfigured reactive HTTP client (F2.1)
+        integrations/
+          ipapi/
+            IpGeoClient.java               # IP → approx coordinates client (F3.1)
+            IpGeoResponse.java             # Minimal mapping for ip-api.com (F3.1)
+          openmeteo/
+            OpenMeteoClient.java           # Current weather client (F3.2)
+            OpenMeteoCurrent.java          # Mapping for current_weather (F3.2)
+            WeatherObservation.java        # Domain object for presentation (F3.2)
+        presenter/
+          WeatherPresenter.java            # Compose human-friendly summary (F3.3)
+        errors/
+          UserFacingErrors.java            # Consistent error line for stderr (F3.4)
         runtime/
           ExitCodes.java                   # Canonical process exit codes
           CodedException.java              # Exception carrying an exit code
@@ -49,8 +63,12 @@ src/
 
 - `src/main/java/com/aiddbot/archetype/cli/ArchetypeJavaCliApplication.java`: Spring Boot entrypoint configuring a non-web CLI.
 - `src/main/java/com/aiddbot/archetype/cli/commands/VersionCommands.java`: Spring Shell command exposing the `version` action.
+- `src/main/java/com/aiddbot/archetype/cli/commands/WeatherCommands.java`: Weather command orchestrating IP geolocation (F3.1), Open‑Meteo (F3.2), and presentation (F3.3).
 - `src/main/java/com/aiddbot/archetype/cli/config/CliProperties.java`: Configuration properties with validation and metadata generation.
 - `src/main/java/com/aiddbot/archetype/cli/runtime/*.java`: Exit codes, coded exception, and mapper used to standardize process termination behavior (F1.5).
+- `src/main/java/com/aiddbot/archetype/cli/integrations/ipapi/*`: Client and DTO for ip-api.com (F3.1).
+- `src/main/java/com/aiddbot/archetype/cli/integrations/openmeteo/*`: Client/DTO/domain for Open‑Meteo (F3.2).
+- `src/main/java/com/aiddbot/archetype/cli/presenter/WeatherPresenter.java`: Presenter for human-readable output (F3.3).
 
 ## Bill of Materials
 
