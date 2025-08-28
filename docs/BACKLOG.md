@@ -174,7 +174,7 @@ Transform domain objects into a concise terminal summary and print results.
   - [Design Document](./backlog/f3.3.design.md)
   - [Implementation Plan](./backlog/f3.3.plan.md)
 
-### F3.4 Graceful errors and exit codes ⛔ BLOCKED
+### F3.4 Graceful errors and exit codes ✨ CODED
 
 - **Dependencies:** 
   - F1.5 Exit codes and process lifecycle

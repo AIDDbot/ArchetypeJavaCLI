@@ -7,6 +7,8 @@ import org.springframework.shell.standard.ShellOption;
 import com.aiddbot.archetype.cli.integrations.ipapi.IpGeoClient;
 import com.aiddbot.archetype.cli.integrations.openmeteo.OpenMeteoClient;
 import com.aiddbot.archetype.cli.presenter.WeatherPresenter;
+import com.aiddbot.archetype.cli.errors.UserFacingErrors;
+import com.aiddbot.archetype.cli.runtime.CodedException;
 
 @ShellComponent
 public class WeatherCommands {
@@ -40,7 +42,13 @@ public class WeatherCommands {
       useLon = lon;
     }
 
-    var obs = openMeteoClient.fetchCurrent(useLat, useLon);
-    return presenter.present(locationText, obs);
+    try {
+      var obs = openMeteoClient.fetchCurrent(useLat, useLon);
+      return presenter.present(locationText, obs);
+    } catch (CodedException ce) {
+      String msg = UserFacingErrors.format(ce);
+      System.err.println(msg);
+      throw ce; // rethrow so application-level mapper can set exit code
+    }
   }
 }
