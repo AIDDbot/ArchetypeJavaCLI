@@ -41,8 +41,8 @@ class DefaultExitCodeExceptionMapperTest {
   @Test
   @DisplayName("ConstraintViolationException -> VALIDATION")
   void constraintViolationIsValidation() {
-    jakarta.validation.ConstraintViolationException ex = new jakarta.validation.ConstraintViolationException("cv",
-        java.util.Set.of());
+    jakarta.validation.ConstraintViolationException ex =
+        new jakarta.validation.ConstraintViolationException("cv", java.util.Set.of());
     assertThat(mapper.map(ex)).isEqualTo(ExitCodes.VALIDATION.code());
   }
 
@@ -60,25 +60,21 @@ class DefaultExitCodeExceptionMapperTest {
   void networkIsNetwork() {
     assertThat(mapper.map(new SocketTimeoutException("timeout")))
         .isEqualTo(ExitCodes.NETWORK.code());
-    assertThat(mapper.map(new TimeoutException("timeout")))
-        .isEqualTo(ExitCodes.NETWORK.code());
+    assertThat(mapper.map(new TimeoutException("timeout"))).isEqualTo(ExitCodes.NETWORK.code());
     assertThat(mapper.map(new ConnectException("conn"))).isEqualTo(ExitCodes.NETWORK.code());
-    assertThat(mapper.map(new UnknownHostException("host")))
-        .isEqualTo(ExitCodes.NETWORK.code());
+    assertThat(mapper.map(new UnknownHostException("host"))).isEqualTo(ExitCodes.NETWORK.code());
   }
 
   @Test
   @DisplayName("Other runtime -> RUNTIME")
   void otherRuntimeIsRuntime() {
-    assertThat(mapper.map(new IllegalStateException("state")))
-        .isEqualTo(ExitCodes.RUNTIME.code());
+    assertThat(mapper.map(new IllegalStateException("state"))).isEqualTo(ExitCodes.RUNTIME.code());
   }
 
   @Test
   @DisplayName("Other checked -> UNKNOWN")
   void otherCheckedIsUnknown() {
-    class Checked extends Exception {
-    }
+    class Checked extends Exception {}
     assertThat(mapper.map(new Checked())).isEqualTo(ExitCodes.UNKNOWN.code());
   }
 

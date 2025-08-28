@@ -16,9 +16,7 @@ import reactor.core.publisher.Mono;
 import reactor.netty.DisposableServer;
 import reactor.netty.http.server.HttpServer;
 
-/**
- * Integration tests for {@link WebClientConfig} bean behavior.
- */
+/** Integration tests for {@link WebClientConfig} bean behavior. */
 @SpringBootTest
 class WebClientConfigIntegrationTest {
 
@@ -77,19 +75,21 @@ class WebClientConfigIntegrationTest {
 
   @Test
   void webClient_enforcesReadTimeout_whenServerDelays() {
-    // Given a handler that delays sending the response beyond the configured read timeout
+    // Given a handler that delays sending the response beyond the configured read
+    // timeout
     server.disposeNow();
-  server =
-    HttpServer.create()
-      .port(0)
-      .route(
-        routes ->
-          routes.get(
-            "/slow",
-            (req, res) ->
-              // Delay beyond the default read timeout (2000 ms)
-              res.sendString(Mono.just("OK").delaySubscription(Duration.ofMillis(3000)))))
-      .bindNow();
+    server =
+        HttpServer.create()
+            .port(0)
+            .route(
+                routes ->
+                    routes.get(
+                        "/slow",
+                        (req, res) ->
+                            // Delay beyond the default read timeout (2000 ms)
+                            res.sendString(
+                                Mono.just("OK").delaySubscription(Duration.ofMillis(3000)))))
+            .bindNow();
 
     // When / Then
     assertThatThrownBy(
@@ -100,6 +100,6 @@ class WebClientConfigIntegrationTest {
                     .retrieve()
                     .bodyToMono(String.class)
                     .block())
-  .isInstanceOf(Exception.class);
+        .isInstanceOf(Exception.class);
   }
 }

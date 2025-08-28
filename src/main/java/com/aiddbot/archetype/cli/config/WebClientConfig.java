@@ -18,8 +18,7 @@ import io.netty.channel.ChannelOption;
 import reactor.netty.http.client.HttpClient;
 
 /**
- * Configuration for a singleton {@link WebClient} with sensible defaults for
- * timeouts and headers.
+ * Configuration for a singleton {@link WebClient} with sensible defaults for timeouts and headers.
  */
 @Configuration
 public class WebClientConfig {
@@ -31,22 +30,25 @@ public class WebClientConfig {
     int connectMs = props.getNetwork().getConnectTimeoutMs();
     int readMs = props.getNetwork().getReadTimeoutMs();
 
-    HttpClient httpClient = HttpClient.create()
-        // Connect timeout
-        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, connectMs)
-        // Read/response timeout
-        .responseTimeout(Duration.ofMillis(readMs));
+    HttpClient httpClient =
+        HttpClient.create()
+            // Connect timeout
+            .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, connectMs)
+            // Read/response timeout
+            .responseTimeout(Duration.ofMillis(readMs));
 
     String version = resolveVersion(buildProps);
     String userAgent = "ArchetypeJavaCLI/" + version;
 
-    WebClient client = WebClient.builder()
-        .clientConnector(new ReactorClientHttpConnector(httpClient))
-        .defaultHeaders(headers -> {
-          headers.setAccept(List.of(MediaType.APPLICATION_JSON));
-          headers.set(HttpHeaders.USER_AGENT, userAgent);
-        })
-        .build();
+    WebClient client =
+        WebClient.builder()
+            .clientConnector(new ReactorClientHttpConnector(httpClient))
+            .defaultHeaders(
+                headers -> {
+                  headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+                  headers.set(HttpHeaders.USER_AGENT, userAgent);
+                })
+            .build();
 
     log.info(
         "WebClient configured: connectTimeoutMs={}, readTimeoutMs={}, userAgent={}",
