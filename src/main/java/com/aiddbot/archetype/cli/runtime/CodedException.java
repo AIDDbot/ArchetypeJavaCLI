@@ -1,7 +1,8 @@
 package com.aiddbot.archetype.cli.runtime;
 
 /**
- * Exception carrying an exit code to signal specific failure scenarios to the process boundary.
+ * Exception carrying an exit code to signal specific failure scenarios to the
+ * process boundary.
  */
 public final class CodedException extends RuntimeException {
   private final ExitCodes exitCode;

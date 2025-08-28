@@ -1,7 +1,5 @@
 package com.aiddbot.archetype.cli;
 
-import com.aiddbot.archetype.cli.runtime.DefaultExitCodeExceptionMapper;
-import com.aiddbot.archetype.cli.runtime.ExitCodeExceptionMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
@@ -14,10 +12,15 @@ import org.springframework.boot.info.BuildProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 
+import com.aiddbot.archetype.cli.runtime.DefaultExitCodeExceptionMapper;
+import com.aiddbot.archetype.cli.runtime.ExitCodeExceptionMapper;
+
 /**
  * Spring Boot application entrypoint for the Archetype Java CLI.
  *
- * <p>Provides a minimal CLI-ready bootstrap with a startup log line including application name and
+ * <p>
+ * Provides a minimal CLI-ready bootstrap with a startup log line including
+ * application name and
  * version.
  */
 @SpringBootApplication
@@ -29,7 +32,9 @@ public class ArchetypeJavaCliApplication {
   /**
    * Application entrypoint for the Archetype Java CLI.
    *
-   * <p>Boots a Spring Boot application configured for CLI usage (non-web) and prints a simple
+   * <p>
+   * Boots a Spring Boot application configured for CLI usage (non-web) and prints
+   * a simple
    * banner to the console.
    *
    * @param args command line arguments
@@ -49,13 +54,16 @@ public class ArchetypeJavaCliApplication {
   }
 
   /**
-   * Logs a concise startup line with application name and version once the Spring context has
+   * Logs a concise startup line with application name and version once the Spring
+   * context has
    * initialized.
    *
-   * <p>Version is resolved from {@link BuildProperties} when available (packaged builds), otherwise
+   * <p>
+   * Version is resolved from {@link BuildProperties} when available (packaged
+   * builds), otherwise
    * falls back to the optional property {@code app.version} or {@code dev}.
    *
-   * @param env Spring {@link Environment} to resolve config properties
+   * @param env        Spring {@link Environment} to resolve config properties
    * @param buildProps lazy provider for build metadata
    * @return a runner executed at startup
    */

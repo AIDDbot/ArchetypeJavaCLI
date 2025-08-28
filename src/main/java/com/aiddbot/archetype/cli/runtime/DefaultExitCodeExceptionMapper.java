@@ -1,6 +1,5 @@
 package com.aiddbot.archetype.cli.runtime;
 
-import jakarta.validation.ConstraintViolationException;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.net.ConnectException;
@@ -8,11 +7,14 @@ import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
 
+import jakarta.validation.ConstraintViolationException;
+
 /** Default implementation for mapping exceptions to exit codes. */
 public class DefaultExitCodeExceptionMapper implements ExitCodeExceptionMapper {
   @Override
   public int map(Throwable t) {
-    if (t == null) return ExitCodes.UNKNOWN.code();
+    if (t == null)
+      return ExitCodes.UNKNOWN.code();
 
     if (t instanceof CodedException ce) {
       return ce.getExitCode().code();
@@ -42,7 +44,8 @@ public class DefaultExitCodeExceptionMapper implements ExitCodeExceptionMapper {
 
   @Override
   public String message(Throwable t) {
-    if (t == null) return "Unknown error";
+    if (t == null)
+      return "Unknown error";
     String msg = t.getMessage();
     if (msg == null || msg.isBlank()) {
       return t.getClass().getSimpleName();
