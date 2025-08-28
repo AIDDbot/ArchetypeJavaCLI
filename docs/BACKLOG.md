@@ -118,9 +118,9 @@ Provide a WebClient bean with connect/read timeouts and sensible defaults, honor
 Expose configurable base URLs for IP Geolocation and Open‑Meteo services; validate formats.
 
 - **Links:**
-  - [Feature Specification](./feats/f2.2.spec.md)
-  - [Design Document](./feats/f2.2.design.md)
-  - [Implementation Plan](./feats/f2.2.plan.md)
+  - [Feature Specification](./backlog/f2.2.spec.md)
+  - [Design Document](./backlog/f2.2.design.md)
+  - [Implementation Plan](./backlog/f2.2.plan.md)
 
 ## E3 Weather Command (Sample Feature) ❗ High
 
@@ -138,9 +138,9 @@ Expose configurable base URLs for IP Geolocation and Open‑Meteo services; vali
 When coordinates aren’t provided, call IP Geolocation API and map response to a Location object.
 
 - **Links:**
-  - [Feature Specification](./feats/f3.1.spec.md)
-  - [Design Document](./feats/f3.1.design.md)
-  - [Implementation Plan](./feats/f3.1.plan.md)
+  - [Feature Specification](./backlog/f3.1.spec.md)
+  - [Design Document](./backlog/f3.1.design.md)
+  - [Implementation Plan](./backlog/f3.1.plan.md)
 
 ### F3.2 Fetch current weather from Open‑Meteo ⛔ BLOCKED
 
@@ -153,9 +153,9 @@ When coordinates aren’t provided, call IP Geolocation API and map response to 
 Call Open‑Meteo with lat/lon and parse JSON into a WeatherObservation domain object.
 
 - **Links:**
-  - [Feature Specification](./feats/f3.2.spec.md)
-  - [Design Document](./feats/f3.2.design.md)
-  - [Implementation Plan](./feats/f3.2.plan.md)
+  - [Feature Specification](./backlog/f3.2.spec.md)
+  - [Design Document](./backlog/f3.2.design.md)
+  - [Implementation Plan](./backlog/f3.2.plan.md)
 
 ### F3.3 Compose human‑readable weather report ⛔ BLOCKED
 
@@ -168,9 +168,9 @@ Call Open‑Meteo with lat/lon and parse JSON into a WeatherObservation domain o
 Transform domain objects into a concise terminal summary and print results.
 
 - **Links:**
-  - [Feature Specification](./feats/f3.3.spec.md)
-  - [Design Document](./feats/f3.3.design.md)
-  - [Implementation Plan](./feats/f3.3.plan.md)
+  - [Feature Specification](./backlog/f3.3.spec.md)
+  - [Design Document](./backlog/f3.3.design.md)
+  - [Implementation Plan](./backlog/f3.3.plan.md)
 
 ### F3.4 Graceful errors and exit codes ⛔ BLOCKED
 
@@ -184,9 +184,9 @@ Transform domain objects into a concise terminal summary and print results.
 Handle network failures and upstream errors with clear messages and non‑zero exit codes.
 
 - **Links:**
-  - [Feature Specification](./feats/f3.4.spec.md)
-  - [Design Document](./feats/f3.4.design.md)
-  - [Implementation Plan](./feats/f3.4.plan.md)
+  - [Feature Specification](./backlog/f3.4.spec.md)
+  - [Design Document](./backlog/f3.4.design.md)
+  - [Implementation Plan](./backlog/f3.4.plan.md)
 
 ## E4 Build and Packaging ❕ Normal
 
@@ -202,9 +202,9 @@ Handle network failures and upstream errors with clear messages and non‑zero e
 Configure Maven plugins (compiler, Surefire/Failsafe placeholders) and Java 21 toolchain for consistent builds.
 
 - **Links:**
-  - [Feature Specification](./feats/f4.1.spec.md)
-  - [Design Document](./feats/f4.1.design.md)
-  - [Implementation Plan](./feats/f4.1.plan.md)
+  - [Feature Specification](./backlog/f4.1.spec.md)
+  - [Design Document](./backlog/f4.1.design.md)
+  - [Implementation Plan](./backlog/f4.1.plan.md)
 
 ### F4.2 Runnable JAR packaging ⛔ BLOCKED
 
@@ -217,9 +217,9 @@ Configure Maven plugins (compiler, Surefire/Failsafe placeholders) and Java 21 t
 Package the application as a self-contained executable JAR with Spring Boot plugin.
 
 - **Links:**
-  - [Feature Specification](./feats/f4.2.spec.md)
-  - [Design Document](./feats/f4.2.design.md)
-  - [Implementation Plan](./feats/f4.2.plan.md)
+  - [Feature Specification](./backlog/f4.2.spec.md)
+  - [Design Document](./backlog/f4.2.design.md)
+  - [Implementation Plan](./backlog/f4.2.plan.md)
 
 ## Additional Information
 
