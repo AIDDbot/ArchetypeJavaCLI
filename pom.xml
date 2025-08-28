@@ -22,6 +22,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>21</maven.compiler.release>
     <spring-shell.version>3.3.3</spring-shell.version>
+    <!-- Default: skip integration tests unless explicitly enabled -->
+    <skipITs>true</skipITs>
+    <!-- Reproducible builds: fixed output timestamp (may be overridden by CI) -->
+    <project.build.outputTimestamp>2025-01-01T00:00:00Z</project.build.outputTimestamp>
   </properties>
 
   <dependencies>
@@ -140,6 +144,11 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.2.5</version>
         <configuration>
+          <excludes>
+            <exclude>**/*IT.java</exclude>
+            <exclude>**/*ITCase.java</exclude>
+            <exclude>**/*IntegrationTest.java</exclude>
+          </excludes>
           <systemPropertyVariables>
             <spring.shell.interactive.enabled>false</spring.shell.interactive.enabled>
             <spring.shell.noninteractive.enabled>false</spring.shell.noninteractive.enabled>
@@ -152,6 +161,29 @@
         </configuration>
       </plugin>
 
+      <!-- Configure integration-test execution (disabled by default via skipITs) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <skipITs>${skipITs}</skipITs>
+          <includes>
+            <include>**/*IT.java</include>
+            <include>**/*ITCase.java</include>
+            <include>**/*IntegrationTest.java</include>
+          </includes>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
       <!-- Provide mvn spring-boot:run for local execution (packaging added in later features) -->
       <plugin>
         <groupId>org.springframework.boot</groupId>
@@ -160,6 +192,11 @@
           <execution>
             <goals>
               <goal>build-info</goal>
+            </goals>
+          </execution>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
             </goals>
           </execution>
         </executions>

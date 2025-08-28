@@ -199,7 +199,7 @@ Handle network failures and upstream errors with clear messages and non‑zero e
 
 - Ensure predictable local builds and a runnable artifact for distribution.
 
-### F4.1 Maven build plugins configuration ⛔ BLOCKED
+### F4.1 Maven build plugins configuration ✨ CODED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -209,11 +209,12 @@ Handle network failures and upstream errors with clear messages and non‑zero e
 Configure Maven plugins (compiler, Surefire/Failsafe placeholders) and Java 21 toolchain for consistent builds.
 
 - **Links:**
-  - [Feature Specification](./backlog/f4.1.spec.md)
-  - [Design Document](./backlog/f4.1.design.md)
-  - [Implementation Plan](./backlog/f4.1.plan.md)
+  - [Feature Specification](./backlog/f4.1.spec.md) ✅
+  - [Design Document](./backlog/f4.1.design.md) ✅
+  - [Implementation Plan](./backlog/f4.1.plan.md) ✅
+  - [Implementation Tasks](./backlog/f4.1.tasks.md) ✅
 
-### F4.2 Runnable JAR packaging ⛔ BLOCKED
+### F4.2 Runnable JAR packaging ✨ CODED
 
 - **Dependencies:** 
   - F4.1 Maven build plugins configuration
@@ -224,9 +225,10 @@ Configure Maven plugins (compiler, Surefire/Failsafe placeholders) and Java 21 t
 Package the application as a self-contained executable JAR with Spring Boot plugin.
 
 - **Links:**
-  - [Feature Specification](./backlog/f4.2.spec.md)
-  - [Design Document](./backlog/f4.2.design.md)
-  - [Implementation Plan](./backlog/f4.2.plan.md)
+  - [Feature Specification](./backlog/f4.2.spec.md) ✅
+  - [Design Document](./backlog/f4.2.design.md) ✅
+  - [Implementation Plan](./backlog/f4.2.plan.md) ✅
+  - [Implementation Tasks](./backlog/f4.2.tasks.md) ✅
 
 ## Additional Information
 
