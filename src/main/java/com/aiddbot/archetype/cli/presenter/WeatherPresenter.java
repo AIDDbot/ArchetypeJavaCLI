@@ -12,6 +12,7 @@ public class WeatherPresenter {
    */
   public String present(String locationText, WeatherObservation obs) {
     String loc = (locationText == null || locationText.isBlank()) ? "your location" : locationText;
-    return String.format("%s: %.1f°C, wind %.1f m/s (code %d)", loc, obs.getTemperatureCelsius(), obs.getWindSpeed(), obs.getWeatherCode());
+    return String.format("%s: %.1f°C, wind %.1f m/s (code %d)", loc, obs.getTemperatureCelsius(), obs.getWindSpeed(),
+        obs.getWeatherCode());
   }
 }

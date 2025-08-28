@@ -15,7 +15,8 @@ import com.aiddbot.archetype.cli.runtime.ExitCodes;
 import reactor.core.Exceptions;
 
 /**
- * Simple client to resolve approximate coordinates from ip-api.com using the application WebClient.
+ * Simple client to resolve approximate coordinates from ip-api.com using the
+ * application WebClient.
  */
 @Component
 public class IpGeoClient {

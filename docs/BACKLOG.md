@@ -128,7 +128,7 @@ Expose configurable base URLs for IP Geolocation and Open‑Meteo services; vali
 
 - Deliver a user-facing `weather` command that resolves location and prints current conditions.
 
-### F3.1 Resolve location via IP (ip-api.com) ✨ CODED
+### F3.1 Resolve location via IP (ip-api.com) ✅ TESTED
 
 - **Dependencies:** 
   - F2.1 Reactive HTTP client with timeouts
@@ -143,6 +143,7 @@ When coordinates aren’t provided, call IP Geolocation API and map response to 
   - [Feature Specification](./backlog/f3.1.spec.md)
   - [Design Document](./backlog/f3.1.design.md)
   - [Implementation Plan](./backlog/f3.1.plan.md)
+  - [Test Notes](./backlog/f3.1.test.md) ✅
 
 ### F3.2 Fetch current weather from Open‑Meteo ✨ CODED
 
