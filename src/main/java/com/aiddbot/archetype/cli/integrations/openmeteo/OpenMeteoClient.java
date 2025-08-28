@@ -34,7 +34,7 @@ public class OpenMeteoClient {
    * Constructs a client using the shared WebClient and configuration.
    *
    * @param webClient shared WebClient with timeouts (F2.1)
-   * @param props CLI properties containing Open‑Meteo base URL (F2.2)
+   * @param props     CLI properties containing Open‑Meteo base URL (F2.2)
    */
   public OpenMeteoClient(WebClient webClient, CliProperties props) {
     this.webClient = webClient;
@@ -47,7 +47,8 @@ public class OpenMeteoClient {
    * @param lat latitude in decimal degrees
    * @param lon longitude in decimal degrees
    * @return {@link WeatherObservation} with temperature, windspeed and code
-   * @throws CodedException when HTTP/network errors occur or the payload is incomplete
+   * @throws CodedException when HTTP/network errors occur or the payload is
+   *                        incomplete
    */
   public WeatherObservation fetchCurrent(double lat, double lon) {
     try {

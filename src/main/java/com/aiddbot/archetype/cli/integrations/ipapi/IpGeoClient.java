@@ -37,7 +37,7 @@ public class IpGeoClient {
    * Create the client with the shared WebClient and configuration properties.
    *
    * @param webClient shared, timeout-configured HTTP client (see F2.1)
-   * @param props CLI properties holding the ip-api base URL (see F2.2)
+   * @param props     CLI properties holding the ip-api base URL (see F2.2)
    */
   public IpGeoClient(WebClient webClient, CliProperties props) {
     this.webClient = webClient;
@@ -48,7 +48,8 @@ public class IpGeoClient {
    * Resolve the current public IP location into approximate coordinates.
    *
    * @return parsed {@link IpGeoResponse} with latitude and longitude
-   * @throws CodedException when HTTP/network errors occur or the response is invalid
+   * @throws CodedException when HTTP/network errors occur or the response is
+   *                        invalid
    */
   public IpGeoResponse resolve() {
     try {

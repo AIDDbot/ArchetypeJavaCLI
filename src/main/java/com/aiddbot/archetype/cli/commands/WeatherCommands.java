@@ -15,10 +15,11 @@ import com.aiddbot.archetype.cli.runtime.CodedException;
  * <p>
  * Orchestrates Epic 3 features:
  * <ul>
- *   <li>F3.1 – Resolve approximate location via IP when coordinates are not provided.</li>
- *   <li>F3.2 – Fetch current weather from Open‑Meteo given lat/lon.</li>
- *   <li>F3.3 – Present a concise, human‑readable summary.</li>
- *   <li>F3.4 – Propagate coded errors for graceful exit codes.</li>
+ * <li>F3.1 – Resolve approximate location via IP when coordinates are not
+ * provided.</li>
+ * <li>F3.2 – Fetch current weather from Open‑Meteo given lat/lon.</li>
+ * <li>F3.3 – Present a concise, human‑readable summary.</li>
+ * <li>F3.4 – Propagate coded errors for graceful exit codes.</li>
  * </ul>
  */
 @ShellComponent
