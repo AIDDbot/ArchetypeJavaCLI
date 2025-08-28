@@ -109,7 +109,7 @@ Provide a WebClient bean with connect/read timeouts and sensible defaults, honor
   - [Implementation Plan](./backlog/f2.1.plan.md) ✅ **UPDATED**
   - [Test Notes](./backlog/f2.1.test.md) ✅
 
-### F2.2 External endpoints configuration (ip-api, Open‑Meteo) 📝 PLANNED
+### F2.2 External endpoints configuration (ip-api, Open‑Meteo) ✔️ RELEASED
 
 - **Dependencies:** 
   - F1.3 Configuration via environment variables
@@ -122,6 +122,7 @@ Expose configurable base URLs for IP Geolocation and Open‑Meteo services; vali
   - [Feature Specification](./backlog/f2.2.spec.md)
   - [Design Document](./backlog/f2.2.design.md)
   - [Implementation Plan](./backlog/f2.2.plan.md)
+  - [Test Notes](./backlog/f2.2.test.md) ✅
 
 ## E3 Weather Command (Sample Feature) ❗ High
 
@@ -143,7 +144,7 @@ When coordinates aren’t provided, call IP Geolocation API and map response to 
   - [Design Document](./backlog/f3.1.design.md)
   - [Implementation Plan](./backlog/f3.1.plan.md)
 
-### F3.2 Fetch current weather from Open‑Meteo ⛔ BLOCKED
+### F3.2 Fetch current weather from Open‑Meteo ⏳ PENDING
 
 - **Dependencies:** 
   - F2.1 Reactive HTTP client with timeouts
