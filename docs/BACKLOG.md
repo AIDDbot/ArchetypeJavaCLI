@@ -27,7 +27,7 @@ Initialize a Java 21 Maven project with Spring Boot and Spring Shell, runnable e
   - [Test Notes](./backlog/f1.1.test.md) ✅ **ENHANCED**
   - [Structure Overview](./STRUCTURE.md) ✅ **UPDATED**
 
-### F1.2 Command framework and help system ✨ CODED
+### F1.2 Command framework and help system ✅ TESTED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -40,8 +40,9 @@ Expose a help system and command discovery with Spring Shell annotations, includ
   - [Feature Specification](./backlog/f1.2.spec.md)
   - [Design Document](./backlog/f1.2.design.md)
   - [Implementation Plan](./backlog/f1.2.plan.md)
+  - [Test Notes](./backlog/f1.2.test.md) ✅
 
-### F1.3 Configuration via environment variables ✨ CODED
+### F1.3 Configuration via environment variables ✅ TESTED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -54,6 +55,7 @@ Bind environment variables with sensible defaults (timeouts, log level, endpoint
   - [Feature Specification](./backlog/f1.3.spec.md)
   - [Design Document](./backlog/f1.3.design.md)
   - [Implementation Plan](./backlog/f1.3.plan.md)
+  - [Test Notes](./backlog/f1.3.test.md) ✅
 
 ### F1.4 Structured logging baseline ⏳ PENDING
 

@@ -10,6 +10,10 @@ src/
     java/
       com/aiddbot/archetype/cli/
         ArchetypeJavaCliApplication.java   # Spring Boot entrypoint (CLI)
+        commands/
+          VersionCommands.java            # Spring Shell command: version
+        config/
+          CliProperties.java              # Strongly-typed configuration properties (F1.3)
     resources/
       application.properties               # Default configuration
   test/
@@ -17,6 +21,11 @@ src/
       com/aiddbot/archetype/cli/
         ArchetypeJavaCliApplicationTest.java     # Integration test (Spring context)
         ArchetypeJavaCliApplicationUnitTest.java # Unit test (mocks, fast)
+        commands/
+          VersionCommandsUnitTest.java    # Unit test for version command
+          VersionCommandsIntegrationTest.java # Integration test for Shell
+        config/
+          CliPropertiesTest.java          # Unit/validation tests for configuration
     resources/
       application-test.properties
 ```
@@ -50,3 +59,23 @@ This project implements a dual testing approach:
     - Design: `docs/backlog/f1.1.design.md`
     - Plan: `docs/backlog/f1.1.plan.md`
     - Tests: `docs/backlog/f1.1.test.md`
+
+- F1.2 Command framework and help system
+  - Commands: `VersionCommands` (Spring Shell)
+  - Behavior: `help` and `version` available; banner on startup.
+  - Status: ✅ TESTED
+  - Docs:
+    - Spec: `docs/backlog/f1.2.spec.md`
+    - Design: `docs/backlog/f1.2.design.md`
+    - Plan: `docs/backlog/f1.2.plan.md`
+    - Tests: `docs/backlog/f1.2.test.md`
+
+- F1.3 Configuration via environment variables
+  - Config: `CliProperties` with network timeouts and endpoints
+  - Behavior: defaults, env binding, and validation at startup.
+  - Status: ✅ TESTED
+  - Docs:
+    - Spec: `docs/backlog/f1.3.spec.md`
+    - Design: `docs/backlog/f1.3.design.md`
+    - Plan: `docs/backlog/f1.3.plan.md`
+    - Tests: `docs/backlog/f1.3.test.md`
