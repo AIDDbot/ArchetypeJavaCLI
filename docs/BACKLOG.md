@@ -92,7 +92,7 @@ Standardize success and error exit codes, with consistent user-facing messages o
 
 - Establish robust HTTP client configuration and external API endpoints to support integrations.
 
-### F2.1 Reactive HTTP client with timeouts ⏳ PENDING
+### F2.1 Reactive HTTP client with timeouts 📝 PLANNED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -104,9 +104,9 @@ Standardize success and error exit codes, with consistent user-facing messages o
 Provide a WebClient bean with connect/read timeouts and sensible defaults, honoring env-driven configuration.
 
 - **Links:**
-  - [Feature Specification](./feats/f2.1.spec.md)
-  - [Design Document](./feats/f2.1.design.md)
-  - [Implementation Plan](./feats/f2.1.plan.md)
+  - [Feature Specification](./backlog/f2.1.spec.md)
+  - [Design Document](./backlog/f2.1.design.md)
+  - [Implementation Plan](./backlog/f2.1.plan.md)
 
 ### F2.2 External endpoints configuration (ip-api, Open‑Meteo) ⏳ PENDING
 
