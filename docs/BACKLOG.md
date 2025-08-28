@@ -2,7 +2,7 @@
 
 > Epic Priority Legend: ‼️ Critical | ❗ High  |❕ Normal
 
-> Feature Status Legend: ⛔ BLOCKED | ⏳ PENDING | ⛪ SPECIFIED | ✏️ DESIGNED | 📝 PLANNED | ✨ CODED | ✅ TESTED | ⚒ CLEANED | ✔️ RELEASED 
+> Feature Status Legend: ⛔ BLOCKED | ⏳ PENDING | ⛪ SPECIFIED | ✏️ DESIGNED | 📝 PLANNED | ✨ CODED | ✅ TESTED | ⛲ CLEANED | ✔️ RELEASED 
 
 ## E1 CLI Scaffold and Runtime ‼️ Critical
 
@@ -92,7 +92,7 @@ Standardize success and error exit codes, with consistent user-facing messages o
 
 - Establish robust HTTP client configuration and external API endpoints to support integrations.
 
-### F2.1 Reactive HTTP client with timeouts 📝 PLANNED
+### F2.1 Reactive HTTP client with timeouts ✔️ RELEASED
 
 - **Dependencies:** 
   - F1.1 Project bootstrap
@@ -106,7 +106,8 @@ Provide a WebClient bean with connect/read timeouts and sensible defaults, honor
 - **Links:**
   - [Feature Specification](./backlog/f2.1.spec.md)
   - [Design Document](./backlog/f2.1.design.md)
-  - [Implementation Plan](./backlog/f2.1.plan.md)
+  - [Implementation Plan](./backlog/f2.1.plan.md) ✅ **UPDATED**
+  - [Test Notes](./backlog/f2.1.test.md) ✅
 
 ### F2.2 External endpoints configuration (ip-api, Open‑Meteo) ⏳ PENDING
 

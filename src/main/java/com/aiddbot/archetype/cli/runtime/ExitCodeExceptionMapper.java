@@ -1,15 +1,11 @@
 package com.aiddbot.archetype.cli.runtime;
 
 /**
- * Maps exceptions to {@link ExitCodes} and renders a concise message for the
- * user.
+ * Maps exceptions to {@link ExitCodes} and renders a concise message for the user.
  *
- * <p>
- * Implementations should be deterministic and side-effect free. They may unwrap
- * custom
- * wrapper exceptions and should prefer specific categories (e.g., network vs
- * IO) before generic
- * runtime failures.
+ * <p>Implementations should be deterministic and side-effect free. They may unwrap custom wrapper
+ * exceptions and should prefer specific categories (e.g., network vs IO) before generic runtime
+ * failures.
  */
 public interface ExitCodeExceptionMapper {
   /**

@@ -12,23 +12,21 @@ import jakarta.validation.ConstraintViolationException;
 /**
  * Default implementation for mapping exceptions to exit codes.
  *
- * <p>
- * Precedence order is:
+ * <p>Precedence order is:
  *
  * <ol>
- * <li>{@link CodedException} explicit mapping
- * <li>Validation errors → {@link ExitCodes#VALIDATION}
- * <li>Network errors (timeouts, connect, DNS) → {@link ExitCodes#NETWORK}
- * <li>Local IO errors → {@link ExitCodes#IO}
- * <li>Other runtime errors → {@link ExitCodes#RUNTIME}
- * <li>Unknown/other → {@link ExitCodes#UNKNOWN}
+ *   <li>{@link CodedException} explicit mapping
+ *   <li>Validation errors → {@link ExitCodes#VALIDATION}
+ *   <li>Network errors (timeouts, connect, DNS) → {@link ExitCodes#NETWORK}
+ *   <li>Local IO errors → {@link ExitCodes#IO}
+ *   <li>Other runtime errors → {@link ExitCodes#RUNTIME}
+ *   <li>Unknown/other → {@link ExitCodes#UNKNOWN}
  * </ol>
  */
 public class DefaultExitCodeExceptionMapper implements ExitCodeExceptionMapper {
   @Override
   public int map(Throwable t) {
-    if (t == null)
-      return ExitCodes.UNKNOWN.code();
+    if (t == null) return ExitCodes.UNKNOWN.code();
 
     if (t instanceof CodedException ce) {
       return ce.getExitCode().code();
@@ -58,8 +56,7 @@ public class DefaultExitCodeExceptionMapper implements ExitCodeExceptionMapper {
 
   @Override
   public String message(Throwable t) {
-    if (t == null)
-      return "Unknown error";
+    if (t == null) return "Unknown error";
     String msg = t.getMessage();
     if (msg == null || msg.isBlank()) {
       return t.getClass().getSimpleName();

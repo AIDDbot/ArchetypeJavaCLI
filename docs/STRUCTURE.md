@@ -16,6 +16,7 @@ src/
           VersionCommands.java             # Spring Shell command: version
         config/
           CliProperties.java               # Strongly-typed configuration properties
+          WebClientConfig.java             # Preconfigured reactive HTTP client (F2.1)
         runtime/
           ExitCodes.java                   # Canonical process exit codes
           CodedException.java              # Exception carrying an exit code
@@ -35,6 +36,7 @@ src/
           VersionCommandsIntegrationTest.java     # Integration test for Shell
         config/
           CliPropertiesTest.java                  # Unit/validation tests for configuration
+          WebClientConfigIntegrationTest.java     # Integration tests for WebClient (headers/timeouts)
         runtime/
           ExitCodesTest.java                      # Unit tests for exit code values
           CodedExceptionTest.java                 # Unit tests for coded exception semantics
