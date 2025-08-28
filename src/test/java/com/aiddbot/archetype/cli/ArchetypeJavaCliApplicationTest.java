@@ -15,28 +15,30 @@ import org.springframework.test.context.TestPropertySource;
 
 /**
  * Integration test for ArchetypeJavaCliApplication.
- * <p>
- * This test starts the ENTIRE Spring context - it's SLOW but tests real
- * integration.
- * For fast tests, use ArchetypeJavaCliApplicationUnitTest instead.
+ *
+ * <p>This test starts the ENTIRE Spring context - it's SLOW but tests real integration. For fast
+ * tests, use ArchetypeJavaCliApplicationUnitTest instead.
  */
-@SpringBootTest(classes = ArchetypeJavaCliApplication.class, webEnvironment = WebEnvironment.NONE, properties = {
-    "spring.autoconfigure.exclude=org.springframework.shell.boot.ShellAutoConfiguration"
-})
+@SpringBootTest(
+    classes = ArchetypeJavaCliApplication.class,
+    webEnvironment = WebEnvironment.NONE,
+    properties = {
+      "spring.autoconfigure.exclude=org.springframework.shell.boot.ShellAutoConfiguration"
+    })
 @ActiveProfiles("test")
-@TestPropertySource(properties = {
-    "spring.shell.interactive.enabled=false",
-    "spring.shell.noninteractive.enabled=false",
-    "spring.main.web-application-type=none",
-    "spring.main.banner-mode=off",
-    "logging.level.com.aiddbot=DEBUG"
-})
+@TestPropertySource(
+    properties = {
+      "spring.shell.interactive.enabled=false",
+      "spring.shell.noninteractive.enabled=false",
+      "spring.main.web-application-type=none",
+      "spring.main.banner-mode=off",
+      "logging.level.com.aiddbot=DEBUG"
+    })
 class ArchetypeJavaCliApplicationTest {
 
   private static final Logger log = LoggerFactory.getLogger(ArchetypeJavaCliApplicationTest.class);
 
-  @Autowired
-  private ApplicationContext applicationContext;
+  @Autowired private ApplicationContext applicationContext;
 
   @Test
   void contextLoads() {
@@ -50,8 +52,11 @@ class ArchetypeJavaCliApplicationTest {
     assertNotNull(applicationContext, "ApplicationContext should not be null");
 
     // Verify our application's CommandLineRunner bean is created
-    CommandLineRunner[] runners = applicationContext.getBeansOfType(CommandLineRunner.class).values()
-        .toArray(new CommandLineRunner[0]);
+    CommandLineRunner[] runners =
+        applicationContext
+            .getBeansOfType(CommandLineRunner.class)
+            .values()
+            .toArray(new CommandLineRunner[0]);
     assertNotNull(runners, "CommandLineRunner beans should exist");
 
     log.info("Found {} CommandLineRunner beans", runners.length);

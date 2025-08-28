@@ -19,23 +19,21 @@ import org.springframework.core.env.Environment;
 
 /**
  * Unit tests for ArchetypeJavaCliApplication.
- * <p>
- * These tests run FAST because they don't start Spring context.
- * They test individual methods in isolation using mocks.
+ *
+ * <p>These tests run FAST because they don't start Spring context. They test individual methods in
+ * isolation using mocks.
  */
 @ExtendWith(MockitoExtension.class)
 class ArchetypeJavaCliApplicationUnitTest {
 
-  private static final Logger log = LoggerFactory.getLogger(ArchetypeJavaCliApplicationUnitTest.class);
+  private static final Logger log =
+      LoggerFactory.getLogger(ArchetypeJavaCliApplicationUnitTest.class);
 
-  @Mock
-  private Environment environment;
+  @Mock private Environment environment;
 
-  @Mock
-  private ObjectProvider<BuildProperties> buildPropsProvider;
+  @Mock private ObjectProvider<BuildProperties> buildPropsProvider;
 
-  @Mock
-  private BuildProperties buildProperties;
+  @Mock private BuildProperties buildProperties;
 
   private ArchetypeJavaCliApplication application;
 
@@ -54,13 +52,11 @@ class ArchetypeJavaCliApplicationUnitTest {
     when(environment.getProperty("spring.application.name", "archetype-java-cli"))
         .thenReturn("test-app");
     when(environment.getProperty("app.version")).thenReturn("1.0.0");
-    when(environment.getProperty("spring.main.web-application-type", "servlet"))
-        .thenReturn("none");
-    when(environment.getProperty("spring.shell.interactive.enabled", "true"))
-        .thenReturn("false");
+    when(environment.getProperty("spring.main.web-application-type", "servlet")).thenReturn("none");
+    when(environment.getProperty("spring.shell.interactive.enabled", "true")).thenReturn("false");
     when(environment.getProperty("spring.shell.noninteractive.enabled", "true"))
         .thenReturn("false");
-    when(environment.getActiveProfiles()).thenReturn(new String[] { "test" });
+    when(environment.getActiveProfiles()).thenReturn(new String[] {"test"});
     when(buildPropsProvider.getIfAvailable()).thenReturn(null);
 
     log.info("Mocks configured successfully");
@@ -75,10 +71,11 @@ class ArchetypeJavaCliApplicationUnitTest {
     log.info("✅ Test passed: CommandLineRunner created");
 
     // Test that the runner can be executed without errors
-    assertDoesNotThrow(() -> {
-      runner.run();
-      log.info("✅ Test passed: CommandLineRunner executed without errors");
-    });
+    assertDoesNotThrow(
+        () -> {
+          runner.run();
+          log.info("✅ Test passed: CommandLineRunner executed without errors");
+        });
 
     // Verify interactions with mocks
     verify(environment).getProperty("spring.application.name", "archetype-java-cli");
@@ -93,13 +90,11 @@ class ArchetypeJavaCliApplicationUnitTest {
     // Arrange
     when(environment.getProperty("spring.application.name", "archetype-java-cli"))
         .thenReturn("test-app");
-    when(environment.getProperty("spring.main.web-application-type", "servlet"))
-        .thenReturn("none");
-    when(environment.getProperty("spring.shell.interactive.enabled", "true"))
-        .thenReturn("false");
+    when(environment.getProperty("spring.main.web-application-type", "servlet")).thenReturn("none");
+    when(environment.getProperty("spring.shell.interactive.enabled", "true")).thenReturn("false");
     when(environment.getProperty("spring.shell.noninteractive.enabled", "true"))
         .thenReturn("false");
-    when(environment.getActiveProfiles()).thenReturn(new String[] { "test" });
+    when(environment.getActiveProfiles()).thenReturn(new String[] {"test"});
     when(buildPropsProvider.getIfAvailable()).thenReturn(buildProperties);
     when(buildProperties.getVersion()).thenReturn("2.0.0-BUILD");
 
@@ -123,13 +118,11 @@ class ArchetypeJavaCliApplicationUnitTest {
     // Arrange
     when(environment.getProperty("spring.application.name", "archetype-java-cli"))
         .thenReturn("test-app");
-    when(environment.getProperty("spring.main.web-application-type", "servlet"))
-        .thenReturn("none");
-    when(environment.getProperty("spring.shell.interactive.enabled", "true"))
-        .thenReturn("false");
+    when(environment.getProperty("spring.main.web-application-type", "servlet")).thenReturn("none");
+    when(environment.getProperty("spring.shell.interactive.enabled", "true")).thenReturn("false");
     when(environment.getProperty("spring.shell.noninteractive.enabled", "true"))
         .thenReturn("false");
-    when(environment.getActiveProfiles()).thenReturn(new String[] { "test" });
+    when(environment.getActiveProfiles()).thenReturn(new String[] {"test"});
     when(buildPropsProvider.getIfAvailable()).thenReturn(null);
     when(environment.getProperty("app.version")).thenReturn(null);
 

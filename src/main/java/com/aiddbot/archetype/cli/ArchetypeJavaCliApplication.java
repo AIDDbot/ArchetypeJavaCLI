@@ -14,9 +14,9 @@ import org.springframework.core.env.Environment;
 
 /**
  * Spring Boot application entrypoint for the Archetype Java CLI.
- * <p>
- * Provides a minimal CLI-ready bootstrap with a startup log line including
- * application name and version.
+ *
+ * <p>Provides a minimal CLI-ready bootstrap with a startup log line including application name and
+ * version.
  */
 @SpringBootApplication
 @ConfigurationPropertiesScan
@@ -26,9 +26,9 @@ public class ArchetypeJavaCliApplication {
 
   /**
    * Application entrypoint for the Archetype Java CLI.
-   * <p>
-   * Boots a Spring Boot application configured for CLI usage (non-web) and prints
-   * a simple banner to the console.
+   *
+   * <p>Boots a Spring Boot application configured for CLI usage (non-web) and prints a simple
+   * banner to the console.
    *
    * @param args command line arguments
    */
@@ -45,15 +45,13 @@ public class ArchetypeJavaCliApplication {
   }
 
   /**
-   * Logs a concise startup line with application name and version once the
-   * Spring context has initialized.
+   * Logs a concise startup line with application name and version once the Spring context has
+   * initialized.
    *
-   * <p>
-   * Version is resolved from {@link BuildProperties} when available
-   * (packaged builds), otherwise falls back to the optional property
-   * {@code app.version} or {@code dev}.
+   * <p>Version is resolved from {@link BuildProperties} when available (packaged builds), otherwise
+   * falls back to the optional property {@code app.version} or {@code dev}.
    *
-   * @param env        Spring {@link Environment} to resolve config properties
+   * @param env Spring {@link Environment} to resolve config properties
    * @param buildProps lazy provider for build metadata
    * @return a runner executed at startup
    */
@@ -69,9 +67,15 @@ public class ArchetypeJavaCliApplication {
       // Log application configuration
       log.info("Application Name: {}", appName);
       log.info("Application Version: {}", version);
-      log.info("Web Application Type: {}", env.getProperty("spring.main.web-application-type", "servlet"));
-      log.info("Shell Interactive Enabled: {}", env.getProperty("spring.shell.interactive.enabled", "true"));
-      log.info("Shell Non-Interactive Enabled: {}", env.getProperty("spring.shell.noninteractive.enabled", "true"));
+      log.info(
+          "Web Application Type: {}",
+          env.getProperty("spring.main.web-application-type", "servlet"));
+      log.info(
+          "Shell Interactive Enabled: {}",
+          env.getProperty("spring.shell.interactive.enabled", "true"));
+      log.info(
+          "Shell Non-Interactive Enabled: {}",
+          env.getProperty("spring.shell.noninteractive.enabled", "true"));
       log.info("Active Profiles: {}", String.join(", ", env.getActiveProfiles()));
 
       log.info("=== {} v{} READY ===", appName, version);

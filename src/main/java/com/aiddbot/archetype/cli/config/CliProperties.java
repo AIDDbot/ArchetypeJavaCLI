@@ -48,10 +48,8 @@ public class CliProperties {
   }
 
   public static class Endpoints {
-    @NotNull
-    private URI ipGeoBaseUrl = URI.create("http://ip-api.com/json");
-    @NotNull
-    private URI openMeteoBaseUrl = URI.create("https://api.open-meteo.com/v1/forecast");
+    @NotNull private URI ipGeoBaseUrl = URI.create("http://ip-api.com/json");
+    @NotNull private URI openMeteoBaseUrl = URI.create("https://api.open-meteo.com/v1/forecast");
 
     public URI getIpGeoBaseUrl() {
       return ipGeoBaseUrl;
