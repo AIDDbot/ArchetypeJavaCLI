@@ -1,10 +1,10 @@
 ---
-description: 'Write clean plan for a feature implementation'
+description: 'Clean a feature implementation'
 ---
 
-# Feature Clean Plan
+# Feature Clean 
 
-Write clean plan for the feature: ${input:featureId}
+Refactor latest changes for the feature: ${input:featureId} in order to make the code more maintainable and easier to understand.
 
 ## Context
 
@@ -31,7 +31,7 @@ Write clean plan for the feature: ${input:featureId}
 
 - [ ] Look for any code that can be simplified or made more readable and refactor it
 
-- [ ] **Run the UNIT Test**: Run the unit tests to ensure they pass. But not the slow integration tests.
+- [ ] **Run the Test**: Run the tests to ensure they pass.
 
 - [ ] Update the [BACKLOG.md](/docs/BACKLOG.md) with:
   - [ ] change or keep the status to ⛲ CLEANED
