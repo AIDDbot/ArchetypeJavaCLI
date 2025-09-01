@@ -70,10 +70,10 @@ src/
 ## Bill of Materials
 
 - Language: Java 21
-- Framework: Spring Boot 3.5.x, Spring Shell 3.3.x
+- Framework: Spring Boot 3.5.5, Spring Shell 3.3.3
 - State Management: Not applicable (CLI)
 - Styling: Spotless (Google Java Format)
-- Testing: JUnit 5, Mockito, Spring Boot Test, Maven Surefire
+- Testing: JUnit 5, Mockito, Spring Boot Test; Maven Surefire/Failsafe
 - Build Tools: Maven, Spring Boot Maven Plugin, Maven Compiler/Enforcer, Spotless
 
 > End of STRUCTURE for Archetype Java CLI, last updated on 2025-09-01.
