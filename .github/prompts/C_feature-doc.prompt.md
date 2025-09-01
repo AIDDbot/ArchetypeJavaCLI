@@ -4,7 +4,7 @@ description: 'Write documentation for a feature implementation'
 
 # Feature Documentation
 
-Write documentation for the feature: ${input:featureId}
+Write the documentation for the feature: ${input:featureId}
 
 ## Context
 
@@ -26,8 +26,6 @@ Write documentation for the feature: ${input:featureId}
 - [ ] Commit changes by running [/U_git-commit](U_git-commit.prompt.md) with docs type message and closing the feature.
 
 - [ ] Merge the branch named `feat/{featureId}` to `main` and switch to it.
-
-You are not allowed to push nothing to remote.
 
 ## Validation
 
