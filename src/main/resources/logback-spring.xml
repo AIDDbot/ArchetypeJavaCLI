@@ -12,11 +12,6 @@
   <property name="ROOT_LOG_LEVEL" value="${springRootLogLevel:-${LOGGING_LEVEL_ROOT:-INFO}}" />
 
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-    <filter class="ch.qos.logback.classic.filter.LevelFilter">
-      <level>ERROR</level>
-      <onMatch>ACCEPT</onMatch>
-      <onMismatch>DENY</onMismatch>
-    </filter>
     <encoder class="net.logstash.logback.encoder.LogstashEncoder">
       <fieldNames>
         <timestamp>timestamp</timestamp>
@@ -61,8 +56,8 @@
     </encoder>
   </appender>
 
-  <root level="${ROOT_LOG_LEVEL}">
-    <appender-ref ref="FILE" />
-    <appender-ref ref="STDOUT" />
+  <root level="ERROR">
+    <appender-ref ref="FILE" level="INFO" />
+    <appender-ref ref="STDOUT" level="ERROR" />
   </root>
 </configuration>
