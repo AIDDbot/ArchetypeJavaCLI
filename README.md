@@ -20,17 +20,13 @@ Prerequisites:
 Build and run tests:
 
 ```bash
-# Run all tests (unit + integration)
+# Run all tests (unit tests only)
 mvn -q clean test
 
 # Run only unit tests (fast, no Spring context)
 mvn test -Dtest=*UnitTest
 
-# Run only integration tests (slower, full Spring context)
-mvn test -Dtest=*Test -Dtest=!*UnitTest
-
 # Use unit tests for regular development and CI/CD pipelines (fast feedback)
-# Use integration tests sparingly for end-to-end validation (slow but thorough)
 # Always run mvn clean when encountering failures to clear stale compiled classes
 
 ```

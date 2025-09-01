@@ -2,7 +2,7 @@
 
 ## Overview
 
-Spring Boot CLI application with Spring Shell commands. Provides a version command, strongly-typed configuration via `@ConfigurationProperties`, and structured JSON logging. Dual testing strategy separates fast unit tests from full-context integration tests.
+Spring Boot CLI application with Spring Shell commands. Provides a version command, strongly-typed configuration via `@ConfigurationProperties`, and structured JSON logging. Testing strategy focuses on fast unit tests.
 Implements a sample Weather flow (Epic 3): IP geolocation (F3.1), Open‑Meteo client (F3.2), human‑readable presenter (F3.3), and graceful errors/exit codes (F3.4).
 
 ## Folder Structure
@@ -43,14 +43,11 @@ src/
   test/
     java/
       com/aiddbot/archetype/cli/
-        ArchetypeJavaCliApplicationTest.java      # Integration test (Spring context)
         ArchetypeJavaCliApplicationUnitTest.java  # Unit test (mocks, fast)
         commands/
           VersionCommandsUnitTest.java            # Unit test for version command
-          VersionCommandsIntegrationTest.java     # Integration test for Shell
         config/
           CliPropertiesTest.java                  # Unit/validation tests for configuration
-          WebClientConfigIntegrationTest.java     # Integration tests for WebClient (headers/timeouts)
         runtime/
           ExitCodesTest.java                      # Unit tests for exit code values
           CodedExceptionTest.java                 # Unit tests for coded exception semantics
