@@ -6,125 +6,68 @@ This document explains how to install, run and use the `archetype-java-cli` tool
 
 - Java 21 installed and available on `PATH`.
 - Built JAR: `target/archetype-java-cli-<version>.jar` (for example `target/archetype-java-cli-0.1.0-SNAPSHOT.jar`).
+- Maven 3.8+ for building.
 
 ## Installation / Preparation
 
-1. Build the project with Maven (run from the repository root):
+1. Ensure Java 21 is installed.
+2. Build the project from the repository root:
 
-   - Ensure Java 21 is installed.
-   - Build:
-     - mvn clean package
+   ```
+   mvn -DskipITs=true clean package
+   ```
 
-2. Locate the artifact:
+3. Locate the produced artifact under `target/`: `archetype-java-cli-<version>.jar`.
 
-   - The executable JAR is produced under `target/` as `archetype-java-cli-<version>.jar`.
+## Run
 
-## Basic execution
+Start the interactive shell:
 
-Run the application from the command line:
+```
+java -jar target/archetype-java-cli-<version>.jar
+```
 
-- Non-interactive mode (run a single command and exit):
+Run a single command and exit (example: version):
 
-  java -jar target/archetype-java-cli-<version>.jar --spring.shell.command="<command>"
+```
+java -jar target/archetype-java-cli-<version>.jar --spring.shell.command=version
+```
 
-- Interactive shell mode:
+Run the weather command with coordinates:
 
-  java -jar target/archetype-java-cli-<version>.jar
+```
+java -jar target/archetype-java-cli-<version>.jar --spring.shell.command="weather --lat 40.4168 --lon -3.7038"
+```
 
-When started in interactive mode you will see the banner and a Spring Shell prompt. Use `help` to list commands.
+## Common commands
 
-## Main commands
+- version — prints build and runtime metadata
+- weather — sample flow: resolves location (by IP if not provided) and fetches current weather
 
-This archetype provides several example commands. The most relevant are:
+## Configuration
 
-- version
-  - Description: Prints the application version and build metadata.
-  - Usage: `version` (or `app version` depending on command grouping)
+Configuration is declared in `application.properties` and bound to `CliProperties`. Override settings with system properties or environment variables as needed. See `CliProperties` in code for exact property keys.
 
-- weather
-  - Description: Sample command that resolves location (by IP if coordinates are not provided) and fetches current weather from Open‑Meteo.
-  - Basic usage:
-    - `weather` — attempts to resolve location by IP and prints current conditions.
-    - `weather --lat <lat> --lon <lon>` — fetches weather for the provided coordinates.
-  - Output: Human-friendly summary including temperature, condition and source metadata.
+## Logging and exit codes
 
-Use `help <command>` to view options and available flags for each command.
+- Structured logging is configured via `logback-spring.xml`.
+- Exit codes are defined in `runtime/ExitCodes.java`; `CodedException` maps failures to canonical codes used by the CLI.
 
-## Configuration via environment variables
+## Tests
 
-The application supports configuration through properties and environment variables. Common configurable properties include:
+Run unit tests:
 
-- `APP_IPAPI_URL` (or the property `cli.endpoints.ipapi` in `application.properties`)
-  - Base URL for the IP geolocation service (ip-api or a configurable provider).
+```
+mvn -DskipITs=true test
+```
 
-- `APP_OPENMETEO_URL` (or the property `cli.endpoints.openmeteo`)
-  - Base URL for Open‑Meteo or the configured weather provider.
+Integration tests are separated and run via the Failsafe plugin when appropriate.
 
-- `APP_HTTP_TIMEOUT_MS` (or `cli.http.timeoutMs`)
-  - HTTP timeout in milliseconds for outbound calls.
+## Where to look next
 
-- `APP_LOG_LEVEL` (or `logging.level.root` / `LOG_LEVEL` depending on your environment)
-  - Log level (INFO, DEBUG, WARN, ERROR).
-
-Notes:
-- The exact property names and their mapping to environment variables are defined in `src/main/java/.../config/CliProperties.java`.
-- The `APP_*` names above are illustrative; check `CliProperties` or `application.properties` for the precise keys.
-
-## Usage examples
-
-1. Print version:
-
-   java -jar target/archetype-java-cli-0.1.0-SNAPSHOT.jar --spring.shell.command=version
-
-2. Fetch weather for specific coordinates:
-
-   java -jar target/archetype-java-cli-0.1.0-SNAPSHOT.jar --spring.shell.command="weather --lat 40.4168 --lon -3.7038"
-
-3. Run with custom environment variables (example in Bash):
-
-   APP_OPENMETEO_URL="https://api.open-meteo.com/v1/forecast" APP_HTTP_TIMEOUT_MS=5000 \
-   java -jar target/archetype-java-cli-0.1.0-SNAPSHOT.jar --spring.shell.command=weather
-
-## Output and exit codes
-
-- Exit code 0: success.
-- Non-zero exit codes: errors. Canonical exit codes are defined in the `runtime/ExitCodes.java` class.
-  - For details and mapping between exceptions and codes, see `src/main/java/com/aiddbot/archetype/cli/runtime/ExitCodes.java` and `DefaultExitCodeExceptionMapper.java`.
-
-Error messages intended for end users are written to stderr; structured logs (when enabled) are emitted to the configured logger.
-
-## Logging
-
-- Default logging configuration resides in `src/main/resources/logback-spring.xml`.
-- Change log levels using environment variables or properties (see the Configuration section above).
-
-## Troubleshooting
-
-- JAR not produced:
-  - Make sure you ran `mvn clean package` and that the build completed without compilation errors.
-
-- `java` not found:
-  - Install Java 21 and ensure `java -version` reports the correct runtime.
-
-- Network errors when using `weather`:
-  - Check `APP_HTTP_TIMEOUT_MS` if you suspect timeouts.
-  - Verify that the URLs configured in `CliProperties` (ip-api / openmeteo) are reachable from your network.
-
-- Configuration validation errors:
-  - If mandatory properties are missing the application may fail to start with validation errors; review `application.properties` and `CliProperties`.
-
-## Additional resources and documentation
-
-- Project structure: `docs/STRUCTURE.md`.
-- Backlog and feature status: `docs/BACKLOG.md`.
-- PRD: `docs/PRD.md`.
-- Design and specification documents: `docs/backlog/`.
-
-## Contact / Contributing
-
-- Follow the usual Git workflow: create a branch, make changes and open a pull request against `main`.
-- To change the documentation, edit `docs/MANUAL.md` and add concrete examples that match the actual implemented commands.
+- Architecture and structure: `docs/STRUCTURE.md`
+- Backlog and feature status: `docs/BACKLOG.md`
 
 ---
 
-End of manual.
+> End of MANUAL for Archetype Java CLI, last updated on 2025-09-01.

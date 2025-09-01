@@ -12,6 +12,8 @@ An archetype for building Java command-line interfaces using Spring Boot and Spr
 
 ## Install & Run
 
+- [User Manual](./docs/MANUAL.md)
+
 Prerequisites:
 
 - Java 21 (JDK) in PATH
