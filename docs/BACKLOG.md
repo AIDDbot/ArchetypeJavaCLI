@@ -178,6 +178,8 @@ Transform domain objects into a concise terminal summary and print results.
   - [Implementation Plan](./backlog/f3.3.plan.md)
   - [Structure Overview](./STRUCTURE.md) ✅ **UPDATED**
 
+**RELEASE NOTES (2025-09-02)**: Improved terminal output for the `weather` command: ASCII-only, one-item-per-line formatting; prefers city/country for detected locations and always reports lat/lon. Added small presentation refactors and updated tests.
+
 ### F3.4 Graceful errors and exit codes ✔️ RELEASED
 
 - **Dependencies:** 

@@ -12,16 +12,16 @@ import org.springframework.context.annotation.Configuration;
 
 class CliPropertiesTest {
 
-  private final ApplicationContextRunner contextRunner = new ApplicationContextRunner()
-      // Ensure a Validator bean is available so @Min/@NotNull validations are
-      // enforced
-      .withConfiguration(AutoConfigurations.of(ValidationAutoConfiguration.class))
-      .withUserConfiguration(TestConfig.class);
+  private final ApplicationContextRunner contextRunner =
+      new ApplicationContextRunner()
+          // Ensure a Validator bean is available so @Min/@NotNull validations are
+          // enforced
+          .withConfiguration(AutoConfigurations.of(ValidationAutoConfiguration.class))
+          .withUserConfiguration(TestConfig.class);
 
   @Configuration
   @EnableConfigurationProperties(CliProperties.class)
-  static class TestConfig {
-  }
+  static class TestConfig {}
 
   @Test
   void defaults_areApplied_whenNoOverrides() {
