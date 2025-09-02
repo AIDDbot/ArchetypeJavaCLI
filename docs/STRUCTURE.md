@@ -31,7 +31,6 @@ ArchetypeJavaCLI is a Spring Boot-based Java command-line application scaffold t
 
 Top-level layout (important folders and files):
 
-- `pom.xml` - Maven project descriptor and dependency management.
 - `src/main/java/` - Application source code.
 - `src/main/resources/` - Application resources (configuration, banner, logging config).
 - `src/test/java/` - Test sources.
@@ -52,6 +51,34 @@ Top-level layout (important folders and files):
 
 ```mermaid
 C4Component
+title Component diagram for ArchetypeJavaCLI - CLI Application
+
+System_Ext(ipGeoApi, "IP Geolocation API", "External HTTP API")
+System_Ext(openMeteoApi, "Open-Meteo API", "External HTTP API")
+
+Container_Boundary(cli_app, "CLI Application") {
+  Component(main, "ArchetypeJavaCliApplication", "Spring Boot application", "Application entry point — boots Spring context and wires components")
+  Component(shell, "Shell Command Layer", "Spring Shell", "Registers CLI commands and routes user input to commands")
+  Component(weatherCmd, "WeatherCommand", "Spring Shell Command", "Command implementation: fetch and display weather for a location or IP")
+  Component(weatherSvc, "WeatherService", "Spring @Service", "Orchestrates external calls, caching and result formatting")
+  Component(httpClient, "HttpClient", "WebClient / RestTemplate", "Performs HTTP calls to external APIs and handles timeouts/retries")
+  Component(config, "ConfigurationProperties", "Spring @ConfigurationProperties", "Holds endpoints, timeouts and feature flags")
+  Component(logging, "Logging", "Logback + logstash encoder", "Structured JSON logging and custom fields (app, version)")
+  Component(tests, "Unit Tests", "JUnit 5", "Unit tests for commands and services (fast, no Spring context where possible)")
+}
+
+Rel(shell, weatherCmd, "invokes")
+Rel(weatherCmd, weatherSvc, "calls")
+Rel(weatherSvc, httpClient, "uses", "HTTP/JSON")
+Rel(httpClient, ipGeoApi, "calls", "HTTP/JSON")
+Rel(httpClient, openMeteoApi, "calls", "HTTP/JSON")
+Rel(weatherSvc, config, "reads")
+Rel(weatherSvc, logging, "writes logs to", "JSON")
+
+UpdateRelStyle(weatherCmd, weatherSvc, $offsetX="-20", $offsetY="10")
+UpdateRelStyle(httpClient, ipGeoApi, $offsetY="-10")
+UpdateLayoutConfig($c4ShapeInRow="3")
+
 ```
 
 > End of STRUCTURE for ArchetypeJavaCLI, last updated on 2025-09-02.
