@@ -78,8 +78,6 @@ Key feature modules (high-level):
 3. Run `mvn -DskipITs=true test` locally and keep build green.
 4. Open a PR referencing the backlog item.
 
-> End of STRUCTURE for Archetype Java CLI
-
 ## Component diagram (Mermaid)
 
 The diagram below is a component-level view of the CLI application rendered with Mermaid. It shows commands, configuration, HTTP clients and the presenter.
