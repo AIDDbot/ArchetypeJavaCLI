@@ -13,7 +13,7 @@ This document explains how to install, run and use the `archetype-java-cli` tool
 1. Ensure Java 21 is installed.
 2. Build the project from the repository root:
 
-   ```
+   ```bash  
    mvn -DskipITs=true clean package
    ```
 
@@ -23,13 +23,21 @@ This document explains how to install, run and use the `archetype-java-cli` tool
 
 Start the interactive shell:
 
-```
+```bash
 java -jar target/archetype-java-cli-<version>.jar
 ```
 
 Run a single command and exit (example: version):
 
+```bash
+java -jar target/archetype-java-cli-<version>.jar --spring.shell.command=version
 ```
+
+```bash
+java -jar target/archetype-java-cli-<version>.jar --spring.shell.command="weather --lat 40.4168 --lon -3.7038"
+```
+
+```bash
 java -jar target/archetype-java-cli-<version>.jar --spring.shell.command=version
 ```
 
@@ -57,7 +65,7 @@ Configuration is declared in `application.properties` and bound to `CliPropertie
 
 Run unit tests:
 
-```
+```bash
 mvn -DskipITs=true test
 ```
 
