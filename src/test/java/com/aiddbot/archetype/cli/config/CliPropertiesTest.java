@@ -4,18 +4,24 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.autoconfigure.AutoConfigurations;
+import org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 import org.springframework.context.annotation.Configuration;
 
 class CliPropertiesTest {
 
-  private final ApplicationContextRunner contextRunner =
-      new ApplicationContextRunner().withUserConfiguration(TestConfig.class);
+  private final ApplicationContextRunner contextRunner = new ApplicationContextRunner()
+      // Ensure a Validator bean is available so @Min/@NotNull validations are
+      // enforced
+      .withConfiguration(AutoConfigurations.of(ValidationAutoConfiguration.class))
+      .withUserConfiguration(TestConfig.class);
 
   @Configuration
   @EnableConfigurationProperties(CliProperties.class)
-  static class TestConfig {}
+  static class TestConfig {
+  }
 
   @Test
   void defaults_areApplied_whenNoOverrides() {
