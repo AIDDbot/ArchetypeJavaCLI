@@ -9,6 +9,7 @@ An archetype for building Java command-line interfaces using Spring Boot and Spr
 - [Systems Architecture](./docs/SYSTEMS.md)
 - [Backlog](./docs/BACKLOG.md)
 - [Briefing](./docs/archetype-java_cli.briefing.md)
+ - [Project Structure](./docs/STRUCTURE.md)
 
 ## Install & Run
 
