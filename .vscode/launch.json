@@ -8,7 +8,10 @@
       "mainClass": "com.aiddbot.archetype.cli.ArchetypeJavaCliApplication",
       "projectName": "archetype-java-cli",
       "args": "",
-      "envFile": "${workspaceFolder}/.env"
+      "envFile": "${workspaceFolder}/.env",
+      "env": {
+        "LOGGING_LEVEL_ROOT": "INFO"
+      }
     }
   ]
 }

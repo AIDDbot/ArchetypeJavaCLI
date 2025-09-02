@@ -2,20 +2,14 @@
 
 This document explains how to install, run and use the `archetype-java-cli` tool built with Spring Boot and Spring Shell.
 
-## Requirements
-
-- Java 21 installed and available on `PATH`.
-- Built JAR: `target/archetype-java-cli-<version>.jar` (for example `target/archetype-java-cli-0.1.0-SNAPSHOT.jar`).
-- Maven 3.8+ for building.
-
 ## Installation / Preparation
 
 1. Ensure Java 21 is installed.
 2. Build the project from the repository root:
 
-   ```bash  
-   mvn -DskipITs=true clean package
-   ```
+```bash  
+mvn -DskipITs=true clean package
+```
 
 3. Locate the produced artifact under `target/`: `archetype-java-cli-<version>.jar`.
 
@@ -24,27 +18,10 @@ This document explains how to install, run and use the `archetype-java-cli` tool
 Start the interactive shell:
 
 ```bash
-java -jar target/archetype-java-cli-<version>.jar
-```
-
-Run a single command and exit (example: version):
-
-```bash
-java -jar target/archetype-java-cli-<version>.jar --spring.shell.command=version
-```
-
-```bash
-java -jar target/archetype-java-cli-<version>.jar --spring.shell.command="weather --lat 40.4168 --lon -3.7038"
-```
-
-```bash
-java -jar target/archetype-java-cli-<version>.jar --spring.shell.command=version
-```
-
-Run the weather command with coordinates:
-
-```
-java -jar target/archetype-java-cli-<version>.jar --spring.shell.command="weather --lat 40.4168 --lon -3.7038"
+# Compile and package
+mvn -q -DskipTests package
+# Run
+java -jar target/archetype-java-cli-0.1.0-SNAPSHOT.jar
 ```
 
 ## Common commands
@@ -52,29 +29,23 @@ java -jar target/archetype-java-cli-<version>.jar --spring.shell.command="weathe
 - version — prints build and runtime metadata
 - weather — sample flow: resolves location (by IP if not provided) and fetches current weather
 
-## Configuration
-
-Configuration is declared in `application.properties` and bound to `CliProperties`. Override settings with system properties or environment variables as needed. See `CliProperties` in code for exact property keys.
-
-## Logging and exit codes
-
-- Structured logging is configured via `logback-spring.xml`.
-- Exit codes are defined in `runtime/ExitCodes.java`; `CodedException` maps failures to canonical codes used by the CLI.
-
-## Tests
-
-Run unit tests:
 
 ```bash
-mvn -DskipITs=true test
+# Run the weather command on your ip based location
+java -jar target/archetype-java-cli-0.1.0-SNAPSHOT.jar weather 
+# Run the weather command with coordinates:
+java -jar target/archetype-java-cli-0.1.0-SNAPSHOT.jar weather --lat 40.4168 --lon -3.7038
 ```
-
-Integration tests are separated and run via the Failsafe plugin when appropriate.
 
 ## Where to look next
 
-- Architecture and structure: `docs/STRUCTURE.md`
-- Backlog and feature status: `docs/BACKLOG.md`
+- If you're a developer, make sure to read the documentation.
+- [Briefing](/docs/archetype-java_cli.briefing.md)
+- [Project Requirements Document (PRD)](/docs/PRD.md)
+- [Domain Model](/docs/DOMAIN.md)
+- [Systems Architecture](/docs/SYSTEMS.md)
+- [Backlog](/docs/BACKLOG.md)
+- [Project Structure](/docs/STRUCTURE.md)
 
 ---
 
