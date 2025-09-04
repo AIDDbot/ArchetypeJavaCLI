@@ -81,24 +81,31 @@
   "github.copilot.chat.languageContext.typescript.enabled": true,
   "github.copilot.enable": {
     "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
     "inlineSuggest": true,
     "inlineSuggest.enable": true,
     "inlineSuggest.showSuggestionsAlways": true
   },
   "github.copilot.nextEditSuggestions.enabled": true,
   "material-icon-theme.files.associations": {
+    "*.briefing.md": "apiblueprint",
     "*.chatmode.md": "robot",
+    "*.design.md": "conduct",
     "*.instructions.md": "robot",
     "*.prompt.md": "robot",
     "*.spec.md": "conduct",
-    "*.tasks.md": "conduct",
+    "*.plan.md": "conduct",
     "*.template.md": "template",
-    "*.test.md": "verified",
+    "*.test.md": "conduct",
     "BACKLOG.md": "conduct",
     "DOMAIN.md": "architecture",
-    "JOURNAL.md": "robot",
+    "JOURNAL.md": "changelog",
+    "MANUAL.md": "lib",
     "PRD.md": "architecture",
-    "STRUCTURE.md": "tree"
+    "STRUCTURE.md": "tree",
+    "SYSTEMS.md": "architecture"
   },
   "material-icon-theme.folders.associations": {
     ".ai": "robot",
@@ -129,5 +136,7 @@
     "workbench.*",
     "editor.fontSize",
     "editor.fontFamily"
-  ]
+  ],
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.compile.nullAnalysis.mode": "automatic"
 }
